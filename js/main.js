@@ -78,7 +78,7 @@ const projectsData = [
   },
   {
     id: 'whatsapp',
-    title: 'WhatsApp Automation Sender',
+    title: 'WhatsApp (Envio de Mensagens corporativas)',
     category: 'automacao',
     shortDesc: 'Motor de automação em escala para WhatsApp com inteligência anti-banimento (Spintax, delays humanizados), fila assíncrona e auto-resposta.',
     tags: [
@@ -91,7 +91,7 @@ const projectsData = [
     demoUrl: '#',
     repoUrl: 'https://github.com/luizodonel',
     fullReport: {
-      headline: 'WhatsApp Automation Sender — Visão Técnica & Arquitetura',
+      headline: 'WhatsApp — Visão Técnica & Arquitetura',
       overview: 'Motor fullstack para automação de mensagens em escala com algoritmos inteligentes de prevenção de bloqueios (anti-ban), processamento de filas assíncronas tolerante a falhas e auto-resposta conversacional baseada em eventos.',
       techStack: 'Back-end: Node.js, Express, whatsapp-web.js (WWebJS), Puppeteer (Chromium Headless), Multer. Front-end: Angular 18 (Standalone Components, TypeScript, RxJS). Autenticação: WWebJS LocalAuth (sessão persistente em disco sem re-scan). Datastore: JSON com serialização atômica.',
       integrations: [
