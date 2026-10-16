@@ -17,10 +17,7 @@
 
 <body>
 
-
-
     <main>
-
         <section class="projects-section" id="projetos">
             <div class="container">
 
@@ -46,108 +43,16 @@
                     </button>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- =========================================================================
-         SKILLS SECTION
-         ========================================================================= -->
-        <section class="skills-section" id="habilidades">
-            <div class="container">
-
-                <div class="section-header" style="margin-bottom: 40px;">
-                    <h2 class="section-title">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                        </svg>
-                        Habilidades & Tecnologias
-                    </h2>
+                <!-- Filter Chips -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack (Java + Angular)</button>
+                    <button class="filter-btn" data-filter="backend">Back-end & APIs</button>
+                    <button class="filter-btn" data-filter="automacao">Automação & Scraping</button>
                 </div>
 
-                <div class="skills-grid">
-
-                    <!-- Back-end -->
-                    <div class="skill-category-card">
-                        <div class="skill-header">
-                            <div class="skill-icon-box icon-java">☕</div>
-                            <h3 class="skill-category-title">Back-End</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-item"><span class="skill-name">Java 17 / 21</span><span
-                                    class="skill-tag">Avançado</span></li>
-                            <li class="skill-item"><span class="skill-name">Spring Boot 3</span><span
-                                    class="skill-tag">RESTful</span></li>
-                            <li class="skill-item"><span class="skill-name">Spring Data JPA / Hibernate</span><span
-                                    class="skill-tag">ORM</span></li>
-                            <li class="skill-item"><span class="skill-name">Spring Security & BCrypt</span><span
-                                    class="skill-tag">Auth</span></li>
-                            <li class="skill-item"><span class="skill-name">Selenium Headless</span><span
-                                    class="skill-tag">Scraping</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Front-end -->
-                    <div class="skill-category-card">
-                        <div class="skill-header">
-                            <div class="skill-icon-box icon-angular">🅰️</div>
-                            <h3 class="skill-category-title">Front-End</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-item"><span class="skill-name">Angular 21 (Signals)</span><span
-                                    class="skill-tag">Modern</span></li>
-                            <li class="skill-item"><span class="skill-name">TypeScript</span><span
-                                    class="skill-tag">Tipagem</span></li>
-                            <li class="skill-item"><span class="skill-name">Angular SSR (Express 5)</span><span
-                                    class="skill-tag">BFF</span></li>
-                            <li class="skill-item"><span class="skill-name">Capacitor 8 (Mobile)</span><span
-                                    class="skill-tag">Android/iOS</span></li>
-                            <li class="skill-item"><span class="skill-name">HTML5 / CSS Puro / UX</span><span
-                                    class="skill-tag">Dark Mode</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Database -->
-                    <div class="skill-category-card">
-                        <div class="skill-header">
-                            <div class="skill-icon-box icon-db">🗄️</div>
-                            <h3 class="skill-category-title">Banco de Dados</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-item"><span class="skill-name">PostgreSQL 16</span><span
-                                    class="skill-tag">Produção</span></li>
-                            <li class="skill-item"><span class="skill-name">Modelagem Relacional</span><span
-                                    class="skill-tag">Cascade</span></li>
-                            <li class="skill-item"><span class="skill-name">Otimização de Índices</span><span
-                                    class="skill-tag">Queries</span></li>
-                            <li class="skill-item"><span class="skill-name">Controle Transacional</span><span
-                                    class="skill-tag">@Transactional</span></li>
-                            <li class="skill-item"><span class="skill-name">H2 Database</span><span
-                                    class="skill-tag">Dev Local</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- DevOps & Cloud -->
-                    <div class="skill-category-card">
-                        <div class="skill-header">
-                            <div class="skill-icon-box icon-devops">🐳</div>
-                            <h3 class="skill-category-title">DevOps & Cloud</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-item"><span class="skill-name">Docker Multi-Stage</span><span
-                                    class="skill-tag">Builds</span></li>
-                            <li class="skill-item"><span class="skill-name">Docker Compose</span><span
-                                    class="skill-tag">Orquestração</span></li>
-                            <li class="skill-item"><span class="skill-name">Coolify (PaaS / VPS)</span><span
-                                    class="skill-tag">CI/CD</span></li>
-                            <li class="skill-item"><span class="skill-name">Nginx Proxy & SSL</span><span
-                                    class="skill-tag">Let's Encrypt</span></li>
-                            <li class="skill-item"><span class="skill-name">Linux / Bash Scripting</span><span
-                                    class="skill-tag">Server</span></li>
-                        </ul>
-                    </div>
-
-                </div>
+                <!-- Dynamic Grid of Projects -->
+                <div class="projects-grid" id="projectsGrid"></div>
 
             </div>
         </section>
