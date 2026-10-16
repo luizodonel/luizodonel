@@ -39,7 +39,7 @@ const projectsData = [
   },
   {
     id: 'bacbo',
-    title: 'Bac Bo Platform (API / Web)',
+    title: 'Casino Online (API / Web)',
     category: 'fullstack',
     shortDesc: 'Monitoramento em tempo real de resultados de cassino ao vivo com Selenium Headless, gestão de bancas e processamento automático de assinaturas via PIX.',
     tags: [
@@ -61,7 +61,7 @@ const projectsData = [
     repoBackend: 'https://github.com/luizodonel/bacboAPI',
     repoBackendName: 'bacboAPI',
     fullReport: {
-      headline: 'Bac Bo Platform — Visão Técnica & Arquitetura',
+      headline: 'Casino Online — Visão Técnica & Arquitetura',
       overview: 'Plataforma fullstack de alta disponibilidade para monitoramento de resultados de cassino ao vivo, gestão financeira de bancas e processamento automático de assinaturas.',
       techStack: 'Back-end: Java 17, Spring Boot 3.2.5 (Spring MVC, Spring Data JPA, Spring Validation, Spring Mail). Front-end & SSR: Angular 21 (Standalone Components, Signals), TypeScript, Node.js 22, Express 5. Mobile: Capacitor 8 (empacotamento híbrido para Android e iOS). Banco de Dados: PostgreSQL 16 (Produção) e H2 Database (Testes locais). Scraping / Automação: Selenium WebDriver 4.24 + Google Chrome Headless + WebDriverManager. DevOps: Docker (Multi-stage builds), Docker Compose, Coolify (PaaS / VPS).',
       integrations: [
@@ -74,70 +74,6 @@ const projectsData = [
       architecture: '1. Back-end (Spring Boot 3): Arquitetura em Camadas (Controller ➔ Service ➔ Repository ➔ Model + DTO) com blindagem DTO/Entity e validação Bean Validation (@Valid, @NotNull, @NotBlank); segurança de senhas com BCrypt; worker do Selenium rodando em container Linux com Chrome estável headless (--headless=new, --no-sandbox) contornando proteções via CDP. 2. Front-end (Angular 21 + SSR Express): Padrão BFF / Proxy Reverso com Express 5 interceptando /api/* com http-proxy-middleware, eliminando CORS e blindando o IP do backend; HttpInterceptor para normalização de rotas relativas no SSR e estado reativo com Standalone Components.',
       database: 'PostgreSQL 16: Relacionamentos e integridade referencial com deleção em cascata (usuarios 1:N bancas 1:N bancas_diarias ON DELETE CASCADE, usuarios 1:N pagamentos e apostas); controle transacional estrito com @Transactional em liquidações financeiras; índices criados especificamente em colunas de consulta frequente (cpf, email, usuario_id, data_criacao).',
       devops: 'Docker Multi-Stage no Back-end (Stage 1 Maven builder ➔ Stage 2 imagem enxuta eclipse-temurin:17-jdk-jammy com Google Chrome estável instalado e JAVA_OPTS limitando heap/metaspace para servidores de 1GB a 2GB RAM). Docker Multi-Stage no Front-end (Build Angular SSR com Node 22 e execução leve com Express). Deploy em Produção orquestrado via Docker Compose e Coolify com rede bridge interna, volumes persistentes e certificados SSL automáticos.'
-    }
-  },
-  {
-    id: 'financeiro',
-    title: 'Gerenciador Financeiro & Bancas',
-    category: 'fullstack',
-    shortDesc: 'Controle de saldo, metas de stop-loss e stop-win diários, gráficos de evolução de patrimônio e relatórios analíticos.',
-    tags: [
-      { name: 'Java', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'Angular', class: 'badge-angular-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' }
-    ],
-    previewType: 'table',
-    previewData: {
-      title: 'app.banca/relatorios',
-      status: ['Meta Atingida', 'Stop Loss', 'Operando'],
-      colors: ['pill-green', 'pill-rose', 'pill-cyan']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Gestão de Capital com Alertas em Tempo Real',
-      overview: 'Dashboard para acompanhamento minucioso de metas financeiras diárias, gestão de risco de capital e histórico detalhado de operações.',
-      techStack: 'Java 17, Spring Boot, Spring Data JPA, Angular, Chart.js, PostgreSQL.',
-      integrations: [
-        'Cálculo automático de metas dinâmicas proporcionais aos dias úteis e volume de operações.',
-        'Exportação de extratos e consolidação mensal de resultados com regras estritas de stop-loss.'
-      ],
-      architecture: 'API RESTful transacional com garantia de consistência de saldos debitados e creditados.',
-      database: 'PostgreSQL modelado com particionamento de lançamentos por ano e mês para alta performance em consultas analíticas.',
-      devops: 'Containerização Docker com deploy contínuo em VPS.'
-    }
-  },
-  {
-    id: 'agendamentos',
-    title: 'Sistema de Agendamentos',
-    category: 'fullstack',
-    shortDesc: 'Plataforma completa de agendamentos para clientes e profissionais com validação de horários conflitantes e notificações.',
-    tags: [
-      { name: 'Java', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'Angular', class: 'badge-angular-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' }
-    ],
-    previewType: 'table',
-    previewData: {
-      title: 'agenda.online/painel',
-      status: ['Confirmado', 'Pendente', 'Em Atendimento'],
-      colors: ['pill-green', 'pill-amber', 'pill-purple']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Agendamento Automatizado com Prevenção de Conflitos',
-      overview: 'Sistema de agendamento online com calendário dinâmico, confirmação automática de horários e gestão de disponibilidade dos profissionais.',
-      techStack: 'Java, Spring Boot, Angular, PostgreSQL, Jakarta Mail.',
-      integrations: [
-        'Algoritmo de validação de intervalos livres em tempo real para evitar double-booking.',
-        'Envio de e-mails automáticos de confirmação e lembretes aos clientes.'
-      ],
-      architecture: 'Clean Architecture com Services dedicados a regras de agendamento, cancelamento e auditoria.',
-      database: 'PostgreSQL com relacionamentos entre prestadores, clientes, serviços e slots de agenda.',
-      devops: 'Deploy automatizado em nuvem gerenciada via Docker.'
     }
   },
   {
@@ -170,103 +106,6 @@ const projectsData = [
       architecture: 'Arquitetura orientada a eventos para despacho de mensagens com persistência de sessões seguras em disco.',
       database: 'Persistência de histórico de envios, erros e relatórios de entrega.',
       devops: 'Container Docker configurado com Chromium para execução ininterrupta na VPS.'
-    }
-  },
-  {
-    id: 'cassino',
-    title: 'Engine de Cassino & Mines',
-    category: 'backend',
-    shortDesc: 'Motor de apostas com lógica Provably Fair, integração de provedores parceiros via Playfiver e liquidação instantânea.',
-    tags: [
-      { name: 'Java 17', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'Playfiver API', class: 'badge-docker-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' }
-    ],
-    previewType: 'chart',
-    previewData: {
-      title: 'games.engine/mines',
-      status: ['Hash Verificado', 'Cashout 3.4x', 'Aposta Ativa'],
-      colors: ['pill-green', 'pill-cyan', 'pill-amber']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Engine de Jogos Provably Fair e Liquidação Transacional',
-      overview: 'Backend de alta concorrência para processamento de jogos de aposta rápida (Mines) com geração criptográfica verificável e integração a agregadores externos.',
-      techStack: 'Java 17, Spring Boot 3, Spring Data JPA, PostgreSQL, Playfiver API.',
-      integrations: [
-        'Playfiver Agregator API: Autenticação mútua via tokens e secret keys para lançamento de sessões de jogos de terceiros.',
-        'Webhooks de saldo: Validação de requisições de débito e crédito enviadas pelo provedor externo em tempo real.'
-      ],
-      architecture: 'Isolamento rigoroso de regras financeiras com `@Transactional` para evitar race conditions em saldos concorrentes.',
-      database: 'PostgreSQL com tabelas de apostas, histórico de multiplicadores e auditoria de transações.',
-      devops: 'Deploy em container Docker com parâmetros otimizados de JVM.'
-    }
-  },
-  {
-    id: 'pix-gateway',
-    title: 'Gateway PIX & Conciliação Automática',
-    category: 'backend',
-    shortDesc: 'Módulo dedicado para geração de PIX com QR Code dinâmico, idempotência de webhooks e estorno programado.',
-    tags: [
-      { name: 'Java 17', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'Mercado Pago', class: 'badge-java-tag' },
-      { name: 'ZXing', class: 'badge-angular-tag' }
-    ],
-    previewType: 'table',
-    previewData: {
-      title: 'pix.gateway/transacoes',
-      status: ['PIX Aprovado', 'QR Code Gerado', 'Conciliado'],
-      colors: ['pill-green', 'pill-cyan', 'pill-purple']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Solução Completa de Pagamentos Instantâneos via PIX',
-      overview: 'Microsserviço de cobrança automática com geração de QR Code Copia e Cola e renderização em imagem sem dependências externas em tempo de execução.',
-      techStack: 'Java 17, Spring Boot, Mercado Pago SDK, ZXing (Zebra Crossing), PostgreSQL.',
-      integrations: [
-        'Mercado Pago Payments API: Geração dinâmica de faturas com expiração configurada.',
-        'Google ZXing: Geração in-memory de BitMatrix convertida diretamente em PNG Base64.',
-        'Webhook Receiver: Tratamento de notificações com verificação de assinatura e idempotência.'
-      ],
-      architecture: 'Mecanismo de conciliação assíncrono com polling inteligente de contingência caso o webhook do gateway falhe.',
-      database: 'Tabela de pagamentos com chave estrangeira para o cliente e índices em IDs de transação.',
-      devops: 'Empacotado em container Docker para uso independente ou integrado.'
-    }
-  },
-  {
-    id: 'esportes',
-    title: 'Bet Settler & Odds Esportivas',
-    category: 'backend',
-    shortDesc: 'Consumo contínuo de odds de partidas de futebol via TheOddsApi e liquidação automática de bilhetes esportivos.',
-    tags: [
-      { name: 'Java 17', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'TheOddsApi', class: 'badge-node-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' }
-    ],
-    previewType: 'chart',
-    previewData: {
-      title: 'sports.odds/live',
-      status: ['Green', 'Ao Vivo', 'Odd 2.15'],
-      colors: ['pill-green', 'pill-rose', 'pill-cyan']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Processador de Apostas Esportivas e Liquidação Automatizada',
-      overview: 'Serviço responsável por capturar cotações esportivas em tempo real, gerenciar apostas múltiplas/simples e liquidar lucros automaticamente assim que os jogos terminam.',
-      techStack: 'Java 17, Spring Boot, TheOddsApi, Spring Data JPA, PostgreSQL.',
-      integrations: [
-        'TheOddsApi: Ingestão de linhas de apostas (Moneyline, Over/Under, Ambas Marcam).',
-        'BetSettlementService: Verificação periódica de placares finais para premiação instantânea na carteira do usuário.'
-      ],
-      architecture: 'Workers agendados com `@Scheduled` e processamento assíncrono de liquidação em lotes.',
-      database: 'Modelagem de bilhetes, seleções esportivas, odds contratadas e status do evento.',
-      devops: 'Container Docker com monitoramento de integridade e logs detalhados.'
     }
   }
 ];
@@ -411,22 +250,21 @@ window.openProjectModal = function (id) {
     <!-- Botões na Parte Superior -->
     <div class="modal-top-actions">
       ${project.demoUrl && project.demoUrl !== '#'
-      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema em Produção ↗</a>`
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema ↗</a>`
       : ''
     }
       ${project.repoFrontend
-      ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (comboioWeb) ↗</a>`
+      ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (Código Fonte) ↗</a>`
       : ''
     }
       ${project.repoBackend
-      ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Back-end (comboioAPI) ↗</a>`
+      ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Back-end (Código Fonte) ↗</a>`
       : ''
     }
       ${project.repoUrl && !project.repoFrontend
       ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Repositório GitHub ↗</a>`
       : ''
     }
-      <button class="btn-secondary" onclick="closeModal('projectModal')" style="padding: 10px 18px; font-size: 0.88rem;">Fechar</button>
     </div>
 
     <div class="modal-body">
