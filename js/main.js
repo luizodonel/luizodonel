@@ -406,6 +406,27 @@ window.openProjectModal = function(id) {
       <button class="modal-close-btn" onclick="closeModal('projectModal')">&times;</button>
     </div>
 
+    <!-- Botões na Parte Superior -->
+    <div class="modal-top-actions">
+      ${project.demoUrl && project.demoUrl !== '#' 
+        ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema em Produção ↗</a>` 
+        : ''
+      }
+      ${project.repoFrontend 
+        ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (comboioWeb) ↗</a>` 
+        : ''
+      }
+      ${project.repoBackend 
+        ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Back-end (comboioAPI) ↗</a>` 
+        : ''
+      }
+      ${project.repoUrl && !project.repoFrontend 
+        ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Repositório GitHub ↗</a>` 
+        : ''
+      }
+      <button class="btn-secondary" onclick="closeModal('projectModal')" style="padding: 10px 18px; font-size: 0.88rem;">Fechar</button>
+    </div>
+
     <div class="modal-body">
       <p style="font-size: 1.05rem; font-weight: 600; color: #f8fafc; margin-bottom: 12px;">${project.fullReport.headline}</p>
       <p>${project.fullReport.overview}</p>
@@ -432,22 +453,6 @@ window.openProjectModal = function(id) {
     </div>
 
     <div class="modal-footer">
-      ${project.demoUrl && project.demoUrl !== '#' 
-        ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Acessar Sistema em Produção ↗</a>` 
-        : ''
-      }
-      ${project.repoFrontend 
-        ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Front-end (comboioWeb) ↗</a>` 
-        : ''
-      }
-      ${project.repoBackend 
-        ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Back-end (comboioAPI) ↗</a>` 
-        : ''
-      }
-      ${project.repoUrl && !project.repoFrontend 
-        ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Repositório GitHub ↗</a>` 
-        : ''
-      }
       <button class="btn-secondary" onclick="closeModal('projectModal')" style="padding: 10px 20px; font-size: 0.9rem;">Fechar</button>
     </div>
   `;

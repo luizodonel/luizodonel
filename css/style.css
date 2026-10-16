@@ -1102,6 +1102,19 @@ button {
   margin: 16px 0;
 }
 
+.modal-top-actions {
+  padding: 16px 28px;
+  background: #111a28;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 73px;
+  z-index: 9;
+}
+
 .modal-footer {
   padding: 20px 28px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
