@@ -90,6 +90,7 @@ const projectsData = [
     ],
     demoUrl: 'https://whatsapp.luizodonel.cloud/',
     demoLabel: 'Acessar Sistema',
+    apiUrl: 'https://whatsappapi.luizodonel.cloud/api/status',
     repoFrontend: 'https://github.com/luizodonel/whatsappMensagens',
     repoBackend: 'https://github.com/luizodonel/whatsappMensagensAPI',
     fullReport: {
@@ -200,6 +201,10 @@ window.openProjectModal = function (id) {
     <div class="modal-top-actions">
       ${project.demoUrl && project.demoUrl !== '#'
       ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">${project.demoLabel || 'Acessar Sistema'} ↗</a>`
+      : ''
+    }
+      ${project.apiUrl
+      ? `<a href="${project.apiUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">API (Status / Swagger) ↗</a>`
       : ''
     }
       ${project.repoFrontend
