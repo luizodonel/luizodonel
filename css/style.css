@@ -1091,74 +1091,420 @@ button {
 }
 
 /* ==========================================================================
-   PRINT STYLES (PDF EXPORT)
+   CURRICULUM MODAL - ESTILOS DE TELA E IMPRESSÃO
    ========================================================================== */
+.cv-modal-body {
+  background: #0b111e;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.cv-contact-bar {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.cv-contact-bar a {
+  color: var(--accent-cyan);
+}
+
+.cv-contact-bar svg {
+  stroke: var(--accent-cyan);
+}
+
+.cv-section {
+  margin-bottom: 24px;
+}
+
+.cv-section-title {
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+.cv-skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.91rem;
+}
+
+.cv-skills-grid strong {
+  color: #f8fafc;
+}
+
+.cv-skills-grid span {
+  color: #cbd5e1;
+}
+
+.cv-experience-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 14px 16px;
+  border-radius: 0 8px 8px 0;
+}
+
+.cv-experience-card h5 {
+  margin: 0;
+  font-size: 1.02rem;
+  color: #f8fafc;
+}
+
+.cv-date {
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.cv-experience-card p {
+  margin: 4px 0 6px;
+  font-size: 0.88rem;
+  color: #94a3b8;
+}
+
+.cv-stack {
+  margin: 0 0 8px !important;
+  font-size: 0.85rem !important;
+  color: #38bdf8 !important;
+}
+
+.cv-experience-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.89rem;
+  color: #cbd5e1;
+}
+
+.cv-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.cv-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.cv-card h4 {
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.cv-card strong {
+  color: #f8fafc;
+}
+
+.cv-card div {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   PRINT STYLES (PDF EXPORT & IMPRESSÃO PROFISSIONAL A4)
+   ========================================================================== */
+@page {
+  size: A4 portrait;
+  margin: 12mm 15mm 12mm 15mm;
+}
+
 @media print {
-  body {
-    background: #fff !important;
-    color: #111 !important;
+  /* Forçar cores exatas e fundo limpo */
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+    height: auto !important;
   }
 
-  main, .footer, .btn-curriculum-header {
+  /* Ocultar elementos fora do currículo */
+  header,
+  main,
+  footer,
+  .footer,
+  .btn-curriculum-header,
+  .modal-overlay:not(#curriculumModal),
+  .modal-close-btn,
+  .modal-footer {
     display: none !important;
   }
 
-  .modal-overlay {
+  /* Reset total do overlay */
+  .modal-overlay#curriculumModal {
     position: static !important;
+    inset: auto !important;
     background: none !important;
+    backdrop-filter: none !important;
     display: block !important;
     padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
+  /* Container do modal - remove barra de rolagem e limitação de altura */
   #curriculumModal .modal-container {
-    max-width: 100% !important;
-    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #111827 !important;
     border: none !important;
-    background: #fff !important;
-    color: #000 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
     transform: none !important;
   }
 
+  /* Cabeçalho do Currículo no PDF */
   #curriculumModal .modal-header {
-    background: #fff !important;
-    border-bottom: 2px solid #222 !important;
-    padding: 0 0 14px 0 !important;
+    background: #ffffff !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding: 0 0 12px 0 !important;
+    margin-bottom: 14px !important;
+    position: static !important;
+    display: block !important;
+  }
+
+  #curriculumModal .modal-header span {
+    color: #0284c7 !important;
+    font-size: 8.5pt !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
   }
 
   #curriculumModal .modal-header h3 {
-    color: #000 !important;
-    font-size: 1.5rem !important;
+    color: #0f172a !important;
+    font-size: 18pt !important;
+    font-weight: 800 !important;
+    margin: 2px 0 !important;
+    letter-spacing: -0.5px !important;
   }
 
-  #curriculumModal .modal-body {
-    background: #fff !important;
-    color: #111 !important;
-    padding: 14px 0 !important;
+  #curriculumModal .modal-header p {
+    color: #334155 !important;
+    font-size: 10.5pt !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+  }
+
+  /* Corpo do Modal - OBRIGATÓRIO OVERFLOW VISIBLE E MAX-HEIGHT NONE */
+  #curriculumModal .modal-body,
+  #curriculumModal .cv-modal-body {
+    background: transparent !important;
+    color: #1e293b !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
     max-height: none !important;
     overflow: visible !important;
+    display: block !important;
   }
 
-  #curriculumModal .modal-body h4,
-  #curriculumModal .modal-body h5,
-  #curriculumModal strong {
-    color: #000 !important;
+  /* Barra de Contato */
+  .cv-contact-bar {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 5px !important;
+    padding: 6px 12px !important;
+    margin-bottom: 14px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: #1e293b !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
-  #curriculumModal p,
-  #curriculumModal span,
-  #curriculumModal li {
-    color: #222 !important;
+  .cv-contact-bar svg {
+    stroke: #0284c7 !important;
   }
 
-  #curriculumModal div[style*="border-left"] {
-    border-left: 3px solid #222 !important;
+  .cv-contact-bar a,
+  .cv-contact-bar div {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+    font-size: 8.5pt !important;
+    text-decoration: none !important;
+  }
+
+  /* Títulos de Seção */
+  .cv-section-title {
+    color: #0f172a !important;
+    font-size: 10.5pt !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid #0284c7 !important;
+    padding-bottom: 3px !important;
+    margin: 16px 0 8px 0 !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Competências Técnicas */
+  .cv-skills-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .cv-skills-grid strong {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+
+  .cv-skills-grid span {
+    color: #334155 !important;
+  }
+
+  /* Seção de Experiência: CADA CARD É BLINDADO CONTRA CORTE DE PÁGINA */
+  .cv-experience-card {
     background: #f8fafc !important;
-    break-inside: avoid;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid #0284c7 !important;
+    border-radius: 0 4px 4px 0 !important;
+    padding: 8px 12px !important;
+    margin-bottom: 10px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
-  #curriculumModal .modal-close-btn,
-  #curriculumModal .modal-footer {
-    display: none !important;
+  .cv-experience-card h5 {
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+  }
+
+  .cv-experience-card .cv-date {
+    color: #0284c7 !important;
+    font-size: 8.5pt !important;
+    font-weight: 700 !important;
+    font-family: monospace !important;
+  }
+
+  .cv-experience-card p {
+    color: #334155 !important;
+    font-size: 8.5pt !important;
+    margin: 2px 0 !important;
+    line-height: 1.35 !important;
+  }
+
+  .cv-experience-card p strong {
+    color: #0f172a !important;
+  }
+
+  .cv-experience-card .cv-stack {
+    color: #0369a1 !important;
+    font-size: 8.2pt !important;
+    font-weight: 600 !important;
+    margin-bottom: 3px !important;
+  }
+
+  .cv-experience-card ul {
+    margin: 3px 0 0 0 !important;
+    padding-left: 16px !important;
+  }
+
+  .cv-experience-card li {
+    color: #334155 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Grid de Certificações e Formação */
+  .cv-grid-cards {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-top: 8px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .cv-card {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .cv-card h4 {
+    color: #0284c7 !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .cv-card strong {
+    color: #0f172a !important;
+    font-size: 8.8pt !important;
+  }
+
+  .cv-card div {
+    color: #64748b !important;
+    font-size: 8pt !important;
+  }
+
+  .cv-card ul {
+    margin: 0 !important;
+    padding-left: 16px !important;
+  }
+
+  .cv-card li {
+    color: #334155 !important;
+    margin-bottom: 4px !important;
   }
 }
+
 

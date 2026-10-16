@@ -263,6 +263,21 @@ window.openCurriculumModal = function () {
   document.body.style.overflow = 'hidden';
 };
 
+window.printCurriculum = function () {
+  document.body.style.overflow = 'visible';
+  window.print();
+};
+
+window.addEventListener('beforeprint', () => {
+  document.body.style.overflow = 'visible';
+});
+
+window.addEventListener('afterprint', () => {
+  if (document.getElementById('curriculumModal')?.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  }
+});
+
 // Open Contact Modal
 window.openContactModal = function () {
   const modal = document.getElementById('contactModal');

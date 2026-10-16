@@ -136,20 +136,19 @@
                 <button class="modal-close-btn" onclick="closeModal('curriculumModal')">&times;</button>
             </div>
 
-            <div class="modal-body" style="background: #0b111e; max-height: 75vh; overflow-y: auto;">
+            <div class="modal-body cv-modal-body">
                 <!-- Header Contact Bar -->
-                <div
-                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px 18px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; font-size: 0.88rem;">
-                    <div style="display: flex; align-items: center; gap: 6px; color: #cbd5e1;">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)"
+                <div class="cv-contact-bar">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path
                                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                         (61) 9 8226-1155
                     </div>
-                    <div style="display: flex; align-items: center; gap: 6px; color: #cbd5e1;">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)"
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                             <polyline points="22,6 12,13 2,6" />
@@ -157,7 +156,7 @@
                         luizodonel@gmail.com
                     </div>
                     <a href="https://linkedin.com/in/luiz-m-61418a151" target="_blank" rel="noopener noreferrer"
-                        style="color: var(--accent-cyan); text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                        style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path
@@ -168,7 +167,7 @@
                         LinkedIn ↗
                     </a>
                     <a href="https://github.com/luizodonel" target="_blank" rel="noopener noreferrer"
-                        style="color: var(--accent-cyan); text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                        style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path
@@ -179,54 +178,47 @@
                 </div>
 
                 <!-- Competências Técnicas -->
-                <div style="margin-bottom: 28px;">
-                    <h4
-                        style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 6px; margin-bottom: 14px;">
-                        Competências Técnicas</h4>
-                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.91rem;">
+                <div class="cv-section">
+                    <h4 class="cv-section-title">Competências Técnicas</h4>
+                    <div class="cv-skills-grid">
                         <div>
-                            <strong style="color: #f8fafc;">Backend:</strong>
-                            <span style="color: #cbd5e1;">Java (6 a 17+), Spring Framework (Spring Boot, Spring Data JPA), Java EE, Hibernate, JPA, EJB, Struts II, JSP, JSF, APIs RESTful, Microsserviços.</span>
+                            <strong>Backend:</strong>
+                            <span>Java (6 a 17+), Spring Framework (Spring Boot, Spring Data JPA), Java EE, Hibernate, JPA, EJB, Struts II, JSP, JSF, APIs RESTful, Microsserviços.</span>
                         </div>
                         <div>
-                            <strong style="color: #f8fafc;">Frontend:</strong>
-                            <span style="color: #cbd5e1;">Angular (2 a 9+), AngularJS, TypeScript, JavaScript, HTML5, CSS3, Web Components.</span>
+                            <strong>Frontend:</strong>
+                            <span>Angular (2 a 9+), AngularJS, TypeScript, JavaScript, HTML5, CSS3, Web Components.</span>
                         </div>
                         <div>
-                            <strong style="color: #f8fafc;">Bancos de Dados & Mensageria:</strong>
-                            <span style="color: #cbd5e1;">Oracle Database, PostgreSQL, SQL Server, PL/SQL, RabbitMQ, Otimização de Queries e Índices.</span>
+                            <strong>Bancos de Dados & Mensageria:</strong>
+                            <span>Oracle Database, PostgreSQL, SQL Server, PL/SQL, RabbitMQ, Otimização de Queries e Índices.</span>
                         </div>
                         <div>
-                            <strong style="color: #f8fafc;">DevOps, Servidores e Nuvem:</strong>
-                            <span style="color: #cbd5e1;">Docker, Rancher, Microsoft Azure, Oracle Cloud Infrastructure (OCI), JBoss EAP, WildFly, Tomcat, Open Liberty, Git, CI/CD.</span>
+                            <strong>DevOps, Servidores e Nuvem:</strong>
+                            <span>Docker, Rancher, Microsoft Azure, Oracle Cloud Infrastructure (OCI), JBoss EAP, WildFly, Tomcat, Open Liberty, Git, CI/CD.</span>
                         </div>
                         <div>
-                            <strong style="color: #f8fafc;">Qualidade & Metodologias:</strong>
-                            <span style="color: #cbd5e1;">JUnit, Mockito, JasperReports/iReport, Testes de Integração, Scrum, Kanban.</span>
+                            <strong>Qualidade & Metodologias:</strong>
+                            <span>JUnit, Mockito, JasperReports/iReport, Testes de Integração, Scrum, Kanban.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Experiência Profissional -->
-                <div style="margin-bottom: 28px;">
-                    <h4
-                        style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 6px; margin-bottom: 16px;">
-                        Experiência Profissional</h4>
+                <div class="cv-section">
+                    <h4 class="cv-section-title">Experiência Profissional</h4>
 
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
 
                         <!-- FOTON -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">FOTON | Desenvolvedor Java Sênior</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">06/2024 – Presente</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>FOTON | Desenvolvedor Java Sênior</h5>
+                                <span class="cv-date">06/2024 – Presente</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projeto:</strong> Caixa Econômica Federal – Sistema Nacional de Habitação</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java, Oracle Database, JPA, Hibernate, JSF, EJB, JBoss 7, JasperReports</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projeto:</strong> Caixa Econômica Federal – Sistema Nacional de Habitação</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java, Oracle Database, JPA, Hibernate, JSF, EJB, JBoss 7, JasperReports</p>
+                            <ul>
                                 <li>Atuação no desenvolvimento e sustentação de regras de negócio para o módulo habitacional, assegurando alta disponibilidade e conformidade regulatória federal.</li>
                                 <li>Diagnóstico e mitigação de gargalos de persistência com Hibernate/JPA e tuning de performance em consultas de alta concorrência no Oracle Database.</li>
                                 <li>Estruturação e manutenção de esteiras automatizadas de emissão de relatórios e extratos contratuais via JasperReports.</li>
@@ -234,17 +226,14 @@
                         </div>
 
                         <!-- FIRST DECISION -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">FIRST DECISION | Desenvolvedor Java Sênior</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">11/2022 – 06/2024</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>FIRST DECISION | Desenvolvedor Java Sênior</h5>
+                                <span class="cv-date">11/2022 – 06/2024</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projeto:</strong> Ministério da Infraestrutura – Sistema de Gestão de Rodovias e Ferrovias</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java 8, Spring Boot, Angular 9, Oracle, PostgreSQL, Rancher, Git</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projeto:</strong> Ministério da Infraestrutura – Sistema de Gestão de Rodovias e Ferrovias</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java 8, Spring Boot, Angular 9, Oracle, PostgreSQL, Rancher, Git</p>
+                            <ul>
                                 <li>Construção e evolução de serviços para monitoramento e governança logística da malha de transportes nacional.</li>
                                 <li>Desenvolvimento de APIs RESTful integradas a painéis administrativos e operacionais desenvolvidos em Angular 9.</li>
                                 <li>Gestão de implementações contínuas e orquestração de microsserviços em contêineres via Rancher e Docker.</li>
@@ -252,17 +241,14 @@
                         </div>
 
                         <!-- COOPERSYSTEM -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">COOPERSYSTEM | Desenvolvedor Java Sênior</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">08/2021 – 12/2022</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>COOPERSYSTEM | Desenvolvedor Java Sênior</h5>
+                                <span class="cv-date">08/2021 – 12/2022</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projetos:</strong> Banco do Brasil (Cartões) | BB Seguros (Cotação de Seguro Automóvel)</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java 8, Spring Boot, Angular 6, PostgreSQL, Oracle, JUnit, Mockito, Git</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projetos:</strong> Banco do Brasil (Cartões) | BB Seguros (Cotação de Seguro Automóvel)</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java 8, Spring Boot, Angular 6, PostgreSQL, Oracle, JUnit, Mockito, Git</p>
+                            <ul>
                                 <li>Implementação e refatoração de regras transacionais para processamento e emissão de cartões corporativos do Banco do Brasil.</li>
                                 <li>Construção do motor de cotação e tarifação em tempo real para a esteira digital de seguros de veículos.</li>
                                 <li>Garantia de estabilidade e integridade funcional através de testes unitários e de integração com JUnit e Mockito.</li>
@@ -270,17 +256,14 @@
                         </div>
 
                         <!-- TTY2000 SISTEMAS -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">TTY2000 SISTEMAS | Desenvolvedor Java Sênior</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">03/2019 – 07/2021</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>TTY2000 SISTEMAS | Desenvolvedor Java Sênior</h5>
+                                <span class="cv-date">03/2019 – 07/2021</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projetos:</strong> Caixa Econômica Federal (SIIFX – Renda Fixa) | TSE (SIDCE – Contas Eleitorais)</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java, Spring, Angular 8, Oracle Database, Microsoft Azure, JUnit, Mockito, Git</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projetos:</strong> Caixa Econômica Federal (SIIFX – Renda Fixa) | TSE (SIDCE – Contas Eleitorais)</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java, Spring, Angular 8, Oracle Database, Microsoft Azure, JUnit, Mockito, Git</p>
+                            <ul>
                                 <li>Sustentação do ecossistema transacional de fundos e ativos de renda fixa para a Caixa Econômica Federal.</li>
                                 <li>Implementação de rotinas de auditoria, conciliação e apuração fiscal para o Tribunal Superior Eleitoral.</li>
                                 <li>Integração de serviços e esteiras de dados com recursos em nuvem no Microsoft Azure.</li>
@@ -288,34 +271,28 @@
                         </div>
 
                         <!-- GLOBALWEB -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">GLOBALWEB | Desenvolvedor Java Pleno</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">01/2019 – 03/2021</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>GLOBALWEB | Desenvolvedor Java Pleno</h5>
+                                <span class="cv-date">01/2019 – 03/2021</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projetos:</strong> SGPL (Gestão de Passe Livre)</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java 7, AngularJS, Oracle Database, JUnit, JasperReports, Git</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projetos:</strong> SGPL (Gestão de Passe Livre)</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java 7, AngularJS, Oracle Database, JUnit, JasperReports, Git</p>
+                            <ul>
                                 <li>Manutenção corretiva e evolutiva em sistemas governamentais legados corporativos de larga escala.</li>
                                 <li>Criação de novos módulos operacionais no frontend com AngularJS e otimização de consultas analíticas para auditoria.</li>
                             </ul>
                         </div>
 
                         <!-- INDRA COMPANY -->
-                        <div
-                            style="background: rgba(255, 255, 255, 0.02); border-left: 3px solid var(--accent-cyan); padding: 14px 16px; border-radius: 0 8px 8px 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-                                <h5 style="margin: 0; font-size: 1.02rem; color: #f8fafc;">INDRA COMPANY | Desenvolvedor Java Júnior</h5>
-                                <span
-                                    style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; font-family: monospace;">02/2018 – 01/2019</span>
+                        <div class="cv-experience-card">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                                <h5>INDRA COMPANY | Desenvolvedor Java Júnior</h5>
+                                <span class="cv-date">02/2018 – 01/2019</span>
                             </div>
-                            <p style="margin: 4px 0 6px; font-size: 0.88rem; color: #94a3b8;"><strong>Projetos:</strong> SIPPES (Exército Brasileiro) | SISMAN (Ministério da Agricultura) | CAPES</p>
-                            <p style="margin: 0 0 8px; font-size: 0.85rem; color: #38bdf8;"><strong>Stack:</strong> Java, Oracle, PostgreSQL, JBoss 7, JSP</p>
-                            <ul style="margin: 0; padding-left: 18px; font-size: 0.89rem; color: #cbd5e1;">
+                            <p><strong>Projetos:</strong> SIPPES (Exército Brasileiro) | SISMAN (Ministério da Agricultura) | CAPES</p>
+                            <p class="cv-stack"><strong>Stack:</strong> Java, Oracle, PostgreSQL, JBoss 7, JSP</p>
+                            <ul>
                                 <li>Atuação em rotinas críticas de cálculo e processamento da folha salarial dos militares do Exército Brasileiro.</li>
                                 <li>Refatoração, resolução de bugs e manutenção preventiva de sistemas normativos baseados em Struts II, JSP e EJB.</li>
                             </ul>
@@ -325,12 +302,10 @@
                 </div>
 
                 <!-- Certificações Oficiais & Formação Acadêmica -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+                <div class="cv-grid-cards">
                     <!-- Certificações -->
-                    <div
-                        style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 8px;">
-                        <h4
-                            style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    <div class="cv-card">
+                        <h4 style="display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <circle cx="12" cy="8" r="7" />
@@ -338,24 +313,21 @@
                             </svg>
                             Certificações Oficiais
                         </h4>
-                        <ul
-                            style="margin: 0; padding-left: 18px; font-size: 0.87rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
+                        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px;">
                             <li>
-                                <strong style="color: #f8fafc;">Oracle Certified Associate, Java SE 8 Programmer</strong> (1Z0-811 / 1Z0-808)
-                                <div style="color: #94a3b8; font-size: 0.8rem;">Oracle University</div>
+                                <strong>Oracle Certified Associate, Java SE 8 Programmer</strong> (1Z0-811 / 1Z0-808)
+                                <div style="font-size: 0.8rem;">Oracle University</div>
                             </li>
                             <li>
-                                <strong style="color: #f8fafc;">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</strong> (1Z0-1122-25)
-                                <div style="color: #94a3b8; font-size: 0.8rem;">Oracle University</div>
+                                <strong>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</strong> (1Z0-1122-25)
+                                <div style="font-size: 0.8rem;">Oracle University</div>
                             </li>
                         </ul>
                     </div>
 
                     <!-- Formação Acadêmica -->
-                    <div
-                        style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 8px;">
-                        <h4
-                            style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    <div class="cv-card">
+                        <h4 style="display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -363,24 +335,22 @@
                             </svg>
                             Formação Acadêmica
                         </h4>
-                        <ul
-                            style="margin: 0; padding-left: 18px; font-size: 0.87rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
+                        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px;">
                             <li>
-                                <strong style="color: #f8fafc;">Pós-Graduação em Sistemas de Informação</strong>
-                                <div style="color: #94a3b8; font-size: 0.8rem;">Faculdade Unyleya (05/2017 – 10/2019)</div>
+                                <strong>Pós-Graduação em Sistemas de Informação</strong>
+                                <div style="font-size: 0.8rem;">Faculdade Unyleya (05/2017 – 10/2019)</div>
                             </li>
                             <li>
-                                <strong style="color: #f8fafc;">Bacharelado em Sistemas de Informação</strong>
-                                <div style="color: #94a3b8; font-size: 0.8rem;">Uniplan Brasília (02/2013 – 11/2016)</div>
+                                <strong>Bacharelado em Sistemas de Informação</strong>
+                                <div style="font-size: 0.8rem;">Uniplan Brasília (02/2013 – 11/2016)</div>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
 
             <div class="modal-footer">
-                <button class="btn-primary" onclick="window.print()" style="padding: 10px 22px; font-size: 0.9rem;">
+                <button class="btn-primary" onclick="printCurriculum()" style="padding: 10px 22px; font-size: 0.9rem;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6 9 6 2 18 2 18 9" />
                         <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
