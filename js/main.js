@@ -5,15 +5,14 @@
 const projectsData = [
   {
     id: 'comboio',
-    title: 'Comboio Logística & Telemetria',
+    title: 'Comboio Logística',
     category: 'fullstack',
-    shortDesc: 'Motor de logística com roteirização em malha rodoviária real (OSRM), otimização de rotas com algoritmo 2-Opt e telemetria de frotas.',
+    shortDesc: 'Motor de logística com roteirização em malha rodoviária real.',
     tags: [
       { name: 'Java 17', class: 'badge-java-tag' },
       { name: 'Spring Boot', class: 'badge-spring-tag' },
       { name: 'Angular 21', class: 'badge-angular-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' },
-      { name: 'Leaflet OSRM', class: 'badge-node-tag' }
+      { name: 'PostgreSQL', class: 'badge-postgres-tag' }
     ],
     previewType: 'chart',
     previewData: {
@@ -27,7 +26,7 @@ const projectsData = [
     fullReport: {
       headline: 'Comboio Logística — Visão Técnica do Projeto',
       overview: 'Desenvolvido para solucionar a dor real de operações de transporte: planejar rotas eficientes, monitorar frotas em tempo real e controlar custos de viagem. Foco central no motor de logística no mapa e telemetria inteligente.',
-      techStack: 'Java 17, Spring Boot, Spring Data JPA, Hibernate, Angular 21 (Signals e Standalone Components), PostgreSQL 16 (schema isolado), Leaflet.js, OSRM (Open Source Routing Machine), Docker Multi-stage, Coolify.',
+      techStack: 'Java 17, Spring Boot, Spring Data JPA, Hibernate, Angular 21 (Signals e Standalone Components), PostgreSQL 16 (schema isolado), Docker Multi-stage, Coolify.',
       integrations: [
         'Rotas em malha rodoviária real: Integração do Leaflet.js com a engine OSRM via requisições GeoJSON. A rota segue rigorosamente as rodovias e vias reais transitadas pelo motorista, sem linhas retas simplórias.',
         'Algoritmo de Otimização (2-Opt): Resolução prática do problema do Caixeiro Viajante (TSP). Ao cadastrar múltiplos destinos fora de ordem, o sistema reordena os pontos para traçar o menor trajeto viário possível, economizando combustível e tempo.',
@@ -40,14 +39,14 @@ const projectsData = [
   },
   {
     id: 'bacbo',
-    title: 'Bac Bo Plataforma & Extrator',
+    title: 'Bac Bo Platform (API / Web)',
     category: 'fullstack',
-    shortDesc: 'Monitoramento em tempo real de mesas de Bac Bo com Selenium Headless, gestão de bancas e processamento de assinaturas via PIX com Webhook.',
+    shortDesc: 'Monitoramento em tempo real de resultados de cassino ao vivo com Selenium Headless, gestão de bancas e processamento automático de assinaturas via PIX.',
     tags: [
       { name: 'Java 17', class: 'badge-java-tag' },
       { name: 'Spring Boot 3', class: 'badge-spring-tag' },
       { name: 'Angular 21 SSR', class: 'badge-angular-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' },
+      { name: 'PostgreSQL 16', class: 'badge-postgres-tag' },
       { name: 'Docker', class: 'badge-docker-tag' }
     ],
     previewType: 'table',
@@ -57,21 +56,24 @@ const projectsData = [
       colors: ['pill-cyan', 'pill-green', 'pill-rose']
     },
     demoUrl: 'https://www.sinaiscassino.com.br',
-    repoUrl: 'https://github.com/luizodonel/bacboAPI',
+    repoFrontend: 'https://github.com/luizodonel/bacboweb',
+    repoFrontendName: 'bacboweb',
+    repoBackend: 'https://github.com/luizodonel/bacboAPI',
+    repoBackendName: 'bacboAPI',
     fullReport: {
       headline: 'Bac Bo Platform — Visão Técnica & Arquitetura',
       overview: 'Plataforma fullstack de alta disponibilidade para monitoramento de resultados de cassino ao vivo, gestão financeira de bancas e processamento automático de assinaturas.',
-      techStack: 'Java 17, Spring Boot 3.2.5 (Spring MVC, Spring Data JPA, Spring Validation, Spring Mail), Angular 21 (Standalone Components, Signals, SSR com Express 5 e Capacitor 8 Mobile), PostgreSQL 16, Selenium WebDriver 4.24 + Chrome Headless, Mercado Pago SDK, ZXing, SuitPay, Playfiver API, TheOddsApi, Docker Multi-stage.',
+      techStack: 'Back-end: Java 17, Spring Boot 3.2.5 (Spring MVC, Spring Data JPA, Spring Validation, Spring Mail). Front-end & SSR: Angular 21 (Standalone Components, Signals), TypeScript, Node.js 22, Express 5. Mobile: Capacitor 8 (empacotamento híbrido para Android e iOS). Banco de Dados: PostgreSQL 16 (Produção) e H2 Database (Testes locais). Scraping / Automação: Selenium WebDriver 4.24 + Google Chrome Headless + WebDriverManager. DevOps: Docker (Multi-stage builds), Docker Compose, Coolify (PaaS / VPS).',
       integrations: [
-        'Mercado Pago API (Cobranças PIX): Geração síncrona de QR Code com lib Google ZXing (Base64 + Copia e Cola) e Webhook (POST /pagamentos/webhook) com ativação atômica de 30 dias de assinatura (@Transactional).',
-        'SuitPay API: Integração de serviços de carteira digital para processamento de depósitos e saques via PIX.',
-        'Playfiver API: Agregador de cassino com autenticação por token/secret e webhooks transacionais de débito, crédito e validação de sessão.',
-        'TheOddsApi: Ingestão de cotações esportivas e liquidação automatizada de bilhetes.',
-        'Selenium Headless em Linux: Raspagem contínua de resultados de mesas ao vivo dentro do contêiner Docker contornando proteções via CDP.'
+        'Mercado Pago API (Cobranças PIX & Assinaturas): Criação de pagamentos via API REST do Mercado Pago; geração de QR Code com lib Google ZXing no backend (Base64 e Copia-e-Cola síncronos); Webhook transacional (POST /pagamentos/webhook) com validação de status "approved" e extensão atômica da assinatura do usuário em 30 dias com @Transactional.',
+        'SuitPay API (Gateway de Depósitos e Saques): Integração de serviços de carteira digital (CarteiraService e SuitPayService) para processar cash-in e cash-out via PIX para os usuários.',
+        'Playfiver API (Provedor de Cassino): Integração com agregador externo via chaves de autenticação (playfiver.agent.token e secret); implementação de Webhook (PlayfiverWebhookController) para resolução de apostas, débitos/créditos de saldo e validação de sessão em tempo real.',
+        'TheOddsApi (Apostas Esportivas): Consumo de dados esportivos externos com parsing de odds e partidas para a camada de apostas (ApostaEsportiva).',
+        'Jakarta Mail / SMTP Gmail: Envio assíncrono de e-mails transacionais (EmailService) para fluxo de recuperação de senha com geração e validação de tokens numéricos de 6 dígitos com expiração.'
       ],
-      architecture: 'Back-end em camadas (Controller ➔ Service ➔ Repository ➔ Model/DTO) com BCrypt e validação Bean Validation. Front-end em Angular 21 SSR com Express 5 atuando como BFF e Proxy Reverso (/api/*), blindando rotas internas e eliminando CORS.',
-      database: 'PostgreSQL 16 com relacionamentos 1:N com integridade referencial em cascata (ON DELETE CASCADE) e índices em colunas críticas (cpf, email, usuario_id, data_criacao).',
-      devops: 'Docker Multi-stage (Maven builder + Debian Jammy com Google Chrome estável instalado), deploy automatizado via Docker Compose e Coolify com SSL automático.'
+      architecture: '1. Back-end (Spring Boot 3): Arquitetura em Camadas (Controller ➔ Service ➔ Repository ➔ Model + DTO) com blindagem DTO/Entity e validação Bean Validation (@Valid, @NotNull, @NotBlank); segurança de senhas com BCrypt; worker do Selenium rodando em container Linux com Chrome estável headless (--headless=new, --no-sandbox) contornando proteções via CDP. 2. Front-end (Angular 21 + SSR Express): Padrão BFF / Proxy Reverso com Express 5 interceptando /api/* com http-proxy-middleware, eliminando CORS e blindando o IP do backend; HttpInterceptor para normalização de rotas relativas no SSR e estado reativo com Standalone Components.',
+      database: 'PostgreSQL 16: Relacionamentos e integridade referencial com deleção em cascata (usuarios 1:N bancas 1:N bancas_diarias ON DELETE CASCADE, usuarios 1:N pagamentos e apostas); controle transacional estrito com @Transactional em liquidações financeiras; índices criados especificamente em colunas de consulta frequente (cpf, email, usuario_id, data_criacao).',
+      devops: 'Docker Multi-Stage no Back-end (Stage 1 Maven builder ➔ Stage 2 imagem enxuta eclipse-temurin:17-jdk-jammy com Google Chrome estável instalado e JAVA_OPTS limitando heap/metaspace para servidores de 1GB a 2GB RAM). Docker Multi-Stage no Front-end (Build Angular SSR com Node 22 e execução leve com Express). Deploy em Produção orquestrado via Docker Compose e Coolify com rede bridge interna, volumes persistentes e certificados SSL automáticos.'
     }
   },
   {
@@ -282,8 +284,8 @@ function renderProjects(filter) {
   const container = document.getElementById('projectsGrid');
   if (!container) return;
 
-  const filtered = filter === 'all' 
-    ? projectsData 
+  const filtered = filter === 'all'
+    ? projectsData
     : projectsData.filter(p => p.category === filter);
 
   container.innerHTML = filtered.map(p => {
@@ -314,14 +316,14 @@ function renderProjects(filter) {
           </div>
 
           <div class="card-footer">
-            ${hasLiveDemo 
-              ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="action-link">
+            ${hasLiveDemo
+        ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="action-link">
                    Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
-              : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
+        : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
                    Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
-            }
+      }
             <a href="javascript:void(0)" class="action-link-source" onclick="openProjectModal('${p.id}')">
               Código-fonte
             </a>
@@ -389,7 +391,7 @@ function setupFilters() {
 }
 
 // Open Technical Details Modal
-window.openProjectModal = function(id) {
+window.openProjectModal = function (id) {
   const project = projectsData.find(p => p.id === id);
   if (!project) return;
 
@@ -408,22 +410,22 @@ window.openProjectModal = function(id) {
 
     <!-- Botões na Parte Superior -->
     <div class="modal-top-actions">
-      ${project.demoUrl && project.demoUrl !== '#' 
-        ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema em Produção ↗</a>` 
-        : ''
-      }
-      ${project.repoFrontend 
-        ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (comboioWeb) ↗</a>` 
-        : ''
-      }
-      ${project.repoBackend 
-        ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Back-end (comboioAPI) ↗</a>` 
-        : ''
-      }
-      ${project.repoUrl && !project.repoFrontend 
-        ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Repositório GitHub ↗</a>` 
-        : ''
-      }
+      ${project.demoUrl && project.demoUrl !== '#'
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema em Produção ↗</a>`
+      : ''
+    }
+      ${project.repoFrontend
+      ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (comboioWeb) ↗</a>`
+      : ''
+    }
+      ${project.repoBackend
+      ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Back-end (comboioAPI) ↗</a>`
+      : ''
+    }
+      ${project.repoUrl && !project.repoFrontend
+      ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Repositório GitHub ↗</a>`
+      : ''
+    }
       <button class="btn-secondary" onclick="closeModal('projectModal')" style="padding: 10px 18px; font-size: 0.88rem;">Fechar</button>
     </div>
 
@@ -448,7 +450,7 @@ window.openProjectModal = function(id) {
       <h4>Banco de Dados & Modelagem</h4>
       <p>${project.fullReport.database}</p>
 
-      <h4>DevOps & Práticas de Produção</h4>
+      <h4>DevOps</h4>
       <p>${project.fullReport.devops}</p>
     </div>
 
@@ -462,7 +464,7 @@ window.openProjectModal = function(id) {
 };
 
 // Open Resume/Curriculum Modal
-window.openCurriculumModal = function() {
+window.openCurriculumModal = function () {
   const modal = document.getElementById('curriculumModal');
   if (!modal) return;
   modal.classList.add('active');
@@ -470,7 +472,7 @@ window.openCurriculumModal = function() {
 };
 
 // Open Contact Modal
-window.openContactModal = function() {
+window.openContactModal = function () {
   const modal = document.getElementById('contactModal');
   if (!modal) return;
   modal.classList.add('active');
@@ -478,7 +480,7 @@ window.openContactModal = function() {
 };
 
 // Close Modals
-window.closeModal = function(modalId) {
+window.closeModal = function (modalId) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
   modal.classList.remove('active');
