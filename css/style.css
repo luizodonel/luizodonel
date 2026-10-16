@@ -1089,3 +1089,76 @@ button {
     gap: 16px;
   }
 }
+
+/* ==========================================================================
+   PRINT STYLES (PDF EXPORT)
+   ========================================================================== */
+@media print {
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  main, .footer, .btn-curriculum-header {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    position: static !important;
+    background: none !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  #curriculumModal .modal-container {
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #fff !important;
+    color: #000 !important;
+    transform: none !important;
+  }
+
+  #curriculumModal .modal-header {
+    background: #fff !important;
+    border-bottom: 2px solid #222 !important;
+    padding: 0 0 14px 0 !important;
+  }
+
+  #curriculumModal .modal-header h3 {
+    color: #000 !important;
+    font-size: 1.5rem !important;
+  }
+
+  #curriculumModal .modal-body {
+    background: #fff !important;
+    color: #111 !important;
+    padding: 14px 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #curriculumModal .modal-body h4,
+  #curriculumModal .modal-body h5,
+  #curriculumModal strong {
+    color: #000 !important;
+  }
+
+  #curriculumModal p,
+  #curriculumModal span,
+  #curriculumModal li {
+    color: #222 !important;
+  }
+
+  #curriculumModal div[style*="border-left"] {
+    border-left: 3px solid #222 !important;
+    background: #f8fafc !important;
+    break-inside: avoid;
+  }
+
+  #curriculumModal .modal-close-btn,
+  #curriculumModal .modal-footer {
+    display: none !important;
+  }
+}
+
