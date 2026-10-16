@@ -4,10 +4,45 @@
 
 const projectsData = [
   {
+    id: 'comboio',
+    title: 'Comboio Logística & Telemetria',
+    category: 'fullstack',
+    shortDesc: 'Motor de logística com roteirização em malha rodoviária real (OSRM), otimização de rotas com algoritmo 2-Opt e telemetria de frotas.',
+    tags: [
+      { name: 'Java 17', class: 'badge-java-tag' },
+      { name: 'Spring Boot', class: 'badge-spring-tag' },
+      { name: 'Angular 21', class: 'badge-angular-tag' },
+      { name: 'PostgreSQL', class: 'badge-postgres-tag' },
+      { name: 'Leaflet OSRM', class: 'badge-node-tag' }
+    ],
+    previewType: 'chart',
+    previewData: {
+      title: 'comboio.luizodonel.cloud',
+      status: ['Rota Otimizada 2-Opt', 'Checkpoint Ativo', 'Telemetria OK'],
+      colors: ['pill-green', 'pill-cyan', 'pill-amber']
+    },
+    demoUrl: 'https://comboio.luizodonel.cloud',
+    repoFrontend: 'https://github.com/luizodonel/comboioWeb',
+    repoBackend: 'https://github.com/luizodonel/comboioAPI',
+    fullReport: {
+      headline: 'Comboio Logística — Visão Técnica do Projeto',
+      overview: 'Desenvolvido para solucionar a dor real de operações de transporte: planejar rotas eficientes, monitorar frotas em tempo real e controlar custos de viagem. Foco central no motor de logística no mapa e telemetria inteligente.',
+      techStack: 'Java 17, Spring Boot, Spring Data JPA, Hibernate, Angular 21 (Signals e Standalone Components), PostgreSQL 16 (schema isolado), Leaflet.js, OSRM (Open Source Routing Machine), Docker Multi-stage, Coolify.',
+      integrations: [
+        'Rotas em malha rodoviária real: Integração do Leaflet.js com a engine OSRM via requisições GeoJSON. A rota segue rigorosamente as rodovias e vias reais transitadas pelo motorista, sem linhas retas simplórias.',
+        'Algoritmo de Otimização (2-Opt): Resolução prática do problema do Caixeiro Viajante (TSP). Ao cadastrar múltiplos destinos fora de ordem, o sistema reordena os pontos para traçar o menor trajeto viário possível, economizando combustível e tempo.',
+        'Telemetria dos Checkpoints: Acompanhamento da posição do veículo, cálculo dinâmico da "Distância da Base" desde o ponto de partida até o último checkpoint confirmado, além da proximidade entre outros veículos da frota em trânsito.'
+      ],
+      architecture: 'Front-end em Angular 21 reativo com Signals e CSS Puro Dark Mode, protegido por Guards de Rota. Back-end em Java 17 + Spring Boot estruturado em Controller ➔ Service ➔ Repository ➔ Entity, com controle rigoroso de transações (@Transactional) e autenticação RBAC (ADMIN, GESTOR, OPERADOR, MOTORISTA).',
+      database: 'PostgreSQL com schema relacional isolado (comboio), assegurando integridade e integridade referencial com chaves estrangeiras entre frotas, motoristas, abastecimentos e rotas de entrega.',
+      devops: 'Docker Multi-stage builds: Front-end compilado em Node e entregue por Nginx otimizado para rotas; Back-end compilado com Maven e executado em container isolado; deploy contínuo em VPS gerenciado via Coolify.'
+    }
+  },
+  {
     id: 'bacbo',
     title: 'Bac Bo Plataforma & Extrator',
     category: 'fullstack',
-    shortDesc: 'Monitoramento em tempo real de mesas de Bac Bo com Selenium Headless, gestão de bancas e assinaturas PIX com Webhook.',
+    shortDesc: 'Monitoramento em tempo real de mesas de Bac Bo com Selenium Headless, gestão de bancas e processamento de assinaturas via PIX com Webhook.',
     tags: [
       { name: 'Java 17', class: 'badge-java-tag' },
       { name: 'Spring Boot 3', class: 'badge-spring-tag' },
@@ -22,52 +57,21 @@ const projectsData = [
       colors: ['pill-cyan', 'pill-green', 'pill-rose']
     },
     demoUrl: 'https://www.sinaiscassino.com.br',
-    repoUrl: 'https://github.com/luizodonel',
+    repoUrl: 'https://github.com/luizodonel/bacboAPI',
     fullReport: {
-      headline: 'Arquitetura Fullstack de Alta Disponibilidade com Ingestão Headless',
-      overview: 'Sistema completo para captura de resultados ao vivo de mesas de Bac Bo da Evolution/TipMiner, processamento de métricas estatísticas e controle financeiro de assinaturas via PIX.',
-      techStack: 'Java 17, Spring Boot 3.2.5, Angular 21 (SSR com Express 5 e Capacitor 8), PostgreSQL 16, Selenium WebDriver 4.24, Mercado Pago SDK, ZXing, SuitPay, Docker Multi-stage.',
+      headline: 'Bac Bo Platform — Visão Técnica & Arquitetura',
+      overview: 'Plataforma fullstack de alta disponibilidade para monitoramento de resultados de cassino ao vivo, gestão financeira de bancas e processamento automático de assinaturas.',
+      techStack: 'Java 17, Spring Boot 3.2.5 (Spring MVC, Spring Data JPA, Spring Validation, Spring Mail), Angular 21 (Standalone Components, Signals, SSR com Express 5 e Capacitor 8 Mobile), PostgreSQL 16, Selenium WebDriver 4.24 + Chrome Headless, Mercado Pago SDK, ZXing, SuitPay, Playfiver API, TheOddsApi, Docker Multi-stage.',
       integrations: [
-        'Mercado Pago SDK + ZXing: Geração síncrona de QR Code PIX (Base64 + Copia e Cola) e Webhook com confirmação imediata da assinatura.',
-        'SuitPay API: Integração de carteira digital e movimentações de depósito/saque.',
-        'Selenium 4 Headless: Extração de telemetria e WebSocket/DOM de mesas ao vivo dentro de container Linux.'
+        'Mercado Pago API (Cobranças PIX): Geração síncrona de QR Code com lib Google ZXing (Base64 + Copia e Cola) e Webhook (POST /pagamentos/webhook) com ativação atômica de 30 dias de assinatura (@Transactional).',
+        'SuitPay API: Integração de serviços de carteira digital para processamento de depósitos e saques via PIX.',
+        'Playfiver API: Agregador de cassino com autenticação por token/secret e webhooks transacionais de débito, crédito e validação de sessão.',
+        'TheOddsApi: Ingestão de cotações esportivas e liquidação automatizada de bilhetes.',
+        'Selenium Headless em Linux: Raspagem contínua de resultados de mesas ao vivo dentro do contêiner Docker contornando proteções via CDP.'
       ],
-      architecture: 'Arquitetura em camadas no Spring Boot (Controller, Service, Repository, DTO) com BFF (Backend-For-Frontend) em Node.js/Express atuando como proxy reverso para proteção de rotas e blindagem de CORS.',
-      database: 'PostgreSQL 16 com integridade referencial em cascata nas tabelas de usuários, bancas mensais, lançamentos diários e pagamentos.',
-      devops: 'Docker Multi-stage (compilação Maven + imagem final Jammy com Google Chrome estável instalado), deploy automatizado via Coolify e Docker Compose.'
-    }
-  },
-  {
-    id: 'comboio',
-    title: 'Comboio Logística & Telemetria',
-    category: 'fullstack',
-    shortDesc: 'Motor de logística com roteirização em malha rodoviária real, algoritmo 2-Opt para caixeiro viajante e telemetria de frotas.',
-    tags: [
-      { name: 'Java 17', class: 'badge-java-tag' },
-      { name: 'Spring Boot', class: 'badge-spring-tag' },
-      { name: 'Angular 21', class: 'badge-angular-tag' },
-      { name: 'PostgreSQL', class: 'badge-postgres-tag' },
-      { name: 'Leaflet OSRM', class: 'badge-node-tag' }
-    ],
-    previewType: 'chart',
-    previewData: {
-      title: 'comboio.log/rotas',
-      status: ['Rota Otimizada', 'Checkpoint 04', 'Distância Base'],
-      colors: ['pill-green', 'pill-cyan', 'pill-amber']
-    },
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
-    fullReport: {
-      headline: 'Otimização Heurística de Frotas e Telemetria Geoespacial',
-      overview: 'Plataforma para planejamento inteligente de rotas de transporte de cargas e monitoramento de telemetria em tempo real.',
-      techStack: 'Java 17, Spring Boot, Angular 21 (Signals), Leaflet.js, OSRM (Open Source Routing Machine), PostgreSQL.',
-      integrations: [
-        'Engine OSRM: Roteirização em malha viária real via GeoJSON evitando linhas retas simplistas.',
-        'Heurística 2-Opt: Resolução do problema do caixeiro viajante (TSP) para reordenar múltiplos pontos de entrega no menor trajeto.'
-      ],
-      architecture: 'Single Page Application reativa com Angular Signals comunicando-se com API RESTful Spring Boot transacional com controle de perfis RBAC (ADMIN, GESTOR, OPERADOR, MOTORISTA).',
-      database: 'PostgreSQL com schema isolado para motoristas, veículos, viagens, checkpoints e abastecimentos.',
-      devops: 'Containers Docker independentes para API e Frontend com Nginx proxy reverso.'
+      architecture: 'Back-end em camadas (Controller ➔ Service ➔ Repository ➔ Model/DTO) com BCrypt e validação Bean Validation. Front-end em Angular 21 SSR com Express 5 atuando como BFF e Proxy Reverso (/api/*), blindando rotas internas e eliminando CORS.',
+      database: 'PostgreSQL 16 com relacionamentos 1:N com integridade referencial em cascata (ON DELETE CASCADE) e índices em colunas críticas (cpf, email, usuario_id, data_criacao).',
+      devops: 'Docker Multi-stage (Maven builder + Debian Jammy com Google Chrome estável instalado), deploy automatizado via Docker Compose e Coolify com SSL automático.'
     }
   },
   {
@@ -95,11 +99,11 @@ const projectsData = [
       techStack: 'Java 17, Spring Boot, Spring Data JPA, Angular, Chart.js, PostgreSQL.',
       integrations: [
         'Cálculo automático de metas dinâmicas proporcionais aos dias úteis e volume de operações.',
-        'Exportação de extratos e consolidação mensal de resultados.'
+        'Exportação de extratos e consolidação mensal de resultados com regras estritas de stop-loss.'
       ],
       architecture: 'API RESTful transacional com garantia de consistência de saldos debitados e creditados.',
       database: 'PostgreSQL modelado com particionamento de lançamentos por ano e mês para alta performance em consultas analíticas.',
-      devops: 'Containerização Docker com deploy contínuo.'
+      devops: 'Containerização Docker com deploy contínuo em VPS.'
     }
   },
   {
@@ -193,9 +197,9 @@ const projectsData = [
         'Playfiver Agregator API: Autenticação mútua via tokens e secret keys para lançamento de sessões de jogos de terceiros.',
         'Webhooks de saldo: Validação de requisições de débito e crédito enviadas pelo provedor externo em tempo real.'
       ],
-      architecture: 'Isolamento rigoroso de regras financeiras com `@Transactional(isolation = Isolation.REPEATABLE_READ)` para evitar race conditions em saldos concorrentes.',
+      architecture: 'Isolamento rigoroso de regras financeiras com `@Transactional` para evitar race conditions em saldos concorrentes.',
       database: 'PostgreSQL com tabelas de apostas, histórico de multiplicadores e auditoria de transações.',
-      devops: 'Deploy em container Docker com parâmetros otimizados de garbage collection.'
+      devops: 'Deploy em container Docker com parâmetros otimizados de JVM.'
     }
   },
   {
@@ -228,7 +232,7 @@ const projectsData = [
       ],
       architecture: 'Mecanismo de conciliação assíncrono com polling inteligente de contingência caso o webhook do gateway falhe.',
       database: 'Tabela de pagamentos com chave estrangeira para o cliente e índices em IDs de transação.',
-      devops: 'Empacotado em container Docker para uso como módulo independente ou integrado ao monólito.'
+      devops: 'Empacotado em container Docker para uso independente ou integrado.'
     }
   },
   {
@@ -282,42 +286,53 @@ function renderProjects(filter) {
     ? projectsData 
     : projectsData.filter(p => p.category === filter);
 
-  container.innerHTML = filtered.map(p => `
-    <div class="project-card" data-id="${p.id}">
-      <div class="card-preview">
-        <div class="preview-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="url-pill"></span>
-        </div>
-        <div class="preview-content">
-          ${renderPreviewGraphic(p)}
-        </div>
-      </div>
+  container.innerHTML = filtered.map(p => {
+    const hasLiveDemo = p.demoUrl && p.demoUrl !== '#';
 
-      <div class="card-body">
-        <h3 class="card-title">${p.title}</h3>
-        <p class="card-description">${p.shortDesc}</p>
-        
-        <div class="card-tags">
-          ${p.tags.map(t => `<span class="tech-badge ${t.class}">${t.name}</span>`).join('')}
+    return `
+      <div class="project-card" data-id="${p.id}">
+        <div class="card-preview" onclick="openProjectModal('${p.id}')" style="cursor: pointer;">
+          <div class="preview-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="url-pill"></span>
+          </div>
+          <div class="preview-content">
+            ${renderPreviewGraphic(p)}
+          </div>
         </div>
 
-        <div class="card-footer">
-          <a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
-            Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="javascript:void(0)" class="action-link-source" onclick="openProjectModal('${p.id}')">
-            Código-fonte
-          </a>
+        <div class="card-body">
+          <h3 class="card-title" onclick="openProjectModal('${p.id}')" style="cursor: pointer;">
+            ${p.title}
+          </h3>
+          <p class="card-description">${p.shortDesc}</p>
+          
+          <div class="card-tags">
+            ${p.tags.map(t => `<span class="tech-badge ${t.class}">${t.name}</span>`).join('')}
+          </div>
+
+          <div class="card-footer">
+            ${hasLiveDemo 
+              ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="action-link">
+                   Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                 </a>`
+              : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
+                   Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                 </a>`
+            }
+            <a href="javascript:void(0)" class="action-link-source" onclick="openProjectModal('${p.id}')">
+              Código-fonte
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
-// Generate Realistic UI vector mockups inside preview
+// Generate UI vector mockups inside preview
 function renderPreviewGraphic(project) {
   if (project.previewType === 'chart') {
     return `
@@ -401,7 +416,7 @@ window.openProjectModal = function(id) {
       </div>
       <p style="font-size: 0.9rem; color: #94a3b8;">${project.fullReport.techStack}</p>
 
-      <h4>Integrações de APIs & Serviços</h4>
+      <h4>Integrações & Desafios Técnicos Superados</h4>
       <ul>
         ${project.fullReport.integrations.map(item => `<li>${item}</li>`).join('')}
       </ul>
@@ -409,16 +424,30 @@ window.openProjectModal = function(id) {
       <h4>Arquitetura & Design</h4>
       <p>${project.fullReport.architecture}</p>
 
-      <h4>Banco de Dados</h4>
+      <h4>Banco de Dados & Modelagem</h4>
       <p>${project.fullReport.database}</p>
 
-      <h4>Práticas de Produção & DevOps</h4>
+      <h4>DevOps & Práticas de Produção</h4>
       <p>${project.fullReport.devops}</p>
     </div>
 
     <div class="modal-footer">
-      ${project.demoUrl !== '#' ? `<a href="${project.demoUrl}" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Acessar em Produção ↗</a>` : ''}
-      <a href="${project.repoUrl}" target="_blank" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Repositório GitHub</a>
+      ${project.demoUrl && project.demoUrl !== '#' 
+        ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Acessar Sistema em Produção ↗</a>` 
+        : ''
+      }
+      ${project.repoFrontend 
+        ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Front-end (comboioWeb) ↗</a>` 
+        : ''
+      }
+      ${project.repoBackend 
+        ? `<a href="${project.repoBackend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Back-end (comboioAPI) ↗</a>` 
+        : ''
+      }
+      ${project.repoUrl && !project.repoFrontend 
+        ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Repositório GitHub ↗</a>` 
+        : ''
+      }
       <button class="btn-secondary" onclick="closeModal('projectModal')" style="padding: 10px 20px; font-size: 0.9rem;">Fechar</button>
     </div>
   `;
