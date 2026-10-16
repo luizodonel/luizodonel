@@ -518,8 +518,8 @@ button {
 /* Projects Grid: Exactly 4 columns like the user image */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 /* Project Card */
@@ -536,130 +536,33 @@ button {
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--border-card-hover);
   background: var(--bg-card-hover);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.15);
 }
 
-/* Card Mockup Window Preview */
-.card-preview {
-  width: 100%;
-  height: 165px;
-  background: #090e17;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: column;
-}
-
-.preview-bar {
-  height: 22px;
-  background: #141f32;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  gap: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.preview-bar .dot {
-  width: 7px;
-  height: 7px;
-}
-
-.preview-bar .url-pill {
-  margin-left: 6px;
-  height: 12px;
-  width: 80px;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 4px;
-}
-
-.preview-content {
-  flex: 1;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Custom Vector UI Mockups inside preview */
-.ui-mockup-table {
-  width: 100%;
-  height: 100%;
-  background: #0d1524;
-  border-radius: 6px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.ui-mockup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.ui-mockup-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 3px;
-  padding: 0 6px;
-}
-
-.ui-mockup-pill {
-  width: 24px;
-  height: 6px;
-  border-radius: 3px;
-}
-.pill-green { background: #22c55e; }
-.pill-cyan { background: #38bdf8; }
-.pill-purple { background: #a855f7; }
-.pill-amber { background: #f59e0b; }
-.pill-rose { background: #f43f5e; }
-
-.ui-mockup-chart {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  padding-top: 10px;
-}
-
-.chart-bar {
-  flex: 1;
-  background: linear-gradient(to top, rgba(56, 189, 248, 0.2), #38bdf8);
-  border-radius: 2px 2px 0 0;
-}
-
 /* Card Body */
 .card-body {
-  padding: 18px 18px 14px;
+  padding: 24px 24px 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .card-title {
-  font-size: 1.08rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.35;
-  min-height: 2.9rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.card-title:hover {
+  color: var(--accent-cyan);
 }
 
 .card-description {

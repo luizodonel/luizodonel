@@ -80,32 +80,30 @@ const projectsData = [
     id: 'whatsapp',
     title: 'WhatsApp Automation Sender',
     category: 'automacao',
-    shortDesc: 'Sistema automatizado de disparos em massa, filas de mensagens assíncronas com controle de delay e webhook de respostas.',
+    shortDesc: 'Motor de automação em escala para WhatsApp com inteligência anti-banimento (Spintax, delays humanizados), fila assíncrona e auto-resposta.',
     tags: [
       { name: 'Node.js', class: 'badge-node-tag' },
       { name: 'Express', class: 'badge-node-tag' },
-      { name: 'WWebJS', class: 'badge-docker-tag' },
+      { name: 'Angular 18', class: 'badge-angular-tag' },
+      { name: 'WWebJS / Puppeteer', class: 'badge-docker-tag' },
       { name: 'Docker', class: 'badge-docker-tag' }
     ],
-    previewType: 'table',
-    previewData: {
-      title: 'wpp.sender/queue',
-      status: ['Fila Ativa', 'Enviado 100%', 'Respondido'],
-      colors: ['pill-cyan', 'pill-green', 'pill-purple']
-    },
     demoUrl: '#',
     repoUrl: 'https://github.com/luizodonel',
     fullReport: {
-      headline: 'Engine de Automação de Mensagens e Respostas em Escala',
-      overview: 'Motor inteligente para envio de notificações, cobranças e mensagens de suporte via WhatsApp com controle de retenção e prevenção de bloqueios.',
-      techStack: 'Node.js, Express, WhatsApp-Web.js, Puppeteer, Docker.',
+      headline: 'WhatsApp Automation Sender — Visão Técnica & Arquitetura',
+      overview: 'Motor fullstack para automação de mensagens em escala com algoritmos inteligentes de prevenção de bloqueios (anti-ban), processamento de filas assíncronas tolerante a falhas e auto-resposta conversacional baseada em eventos.',
+      techStack: 'Back-end: Node.js, Express, whatsapp-web.js (WWebJS), Puppeteer (Chromium Headless), Multer. Front-end: Angular 18 (Standalone Components, TypeScript, RxJS). Autenticação: WWebJS LocalAuth (sessão persistente em disco sem re-scan). Datastore: JSON com serialização atômica.',
       integrations: [
-        'Gestão de fila assíncrona com rate-limiting e jitter aleatório para emular digitação humana.',
-        'Webhook receptor para registro e resposta de mensagens recebidas de clientes.'
+        'Validação de 9º Dígito e Validade de Conta: Consulta via getNumberId para descartar números sem WhatsApp antes do envio, evitando flags.',
+        'Spintax & Rotação de Mensagens: Intercalação de múltiplos modelos de mensagens para evitar detecção de spam por repetição de padrões.',
+        'Delays Humanizados com Jitter: Intervalos dinâmicos aleatórios entre 60 e 90 segundos entre disparos para respeitar os limites da rede.',
+        'Simulação de Digitação Humana: Emulação de chat.sendStateTyping() por 3 segundos antes do envio de respostas automáticas.',
+        'Auto-Resposta com Deduplicação: Escuta em tempo real (client.on) com persistência em replied.json para responder novos leads sem repetições nem loops.'
       ],
-      architecture: 'Arquitetura orientada a eventos para despacho de mensagens com persistência de sessões seguras em disco.',
-      database: 'Persistência de histórico de envios, erros e relatórios de entrega.',
-      devops: 'Container Docker configurado com Chromium para execução ininterrupta na VPS.'
+      architecture: 'Back-end orientado por eventos desacoplado onde o envio roda em background após resposta HTTP imediata. O Front-end em Angular monitora o progresso em tempo real através de polling reativo no endpoint /api/status. Tolerância a falhas com remoção atômica pós-envio garantindo retomada imediata em caso de reinicialização.',
+      database: 'Persistência em datastore local serializado (contacts.json e replied.json) com arquivo de auditoria de exceções (erros_envio.txt).',
+      devops: 'Container Docker configurado com runtime Chromium e flags (--no-sandbox, --disable-setuid-sandbox) para execução ininterrupta na VPS.'
     }
   }
 ];
@@ -132,18 +130,6 @@ function renderProjects(filter) {
 
     return `
       <div class="project-card" data-id="${p.id}">
-        <div class="card-preview" onclick="openProjectModal('${p.id}')" style="cursor: pointer;">
-          <div class="preview-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="url-pill"></span>
-          </div>
-          <div class="preview-content">
-            ${renderPreviewGraphic(p)}
-          </div>
-        </div>
-
         <div class="card-body">
           <h3 class="card-title" onclick="openProjectModal('${p.id}')" style="cursor: pointer;">
             ${p.title}
@@ -171,50 +157,6 @@ function renderProjects(filter) {
       </div>
     `;
   }).join('');
-}
-
-// Generate UI vector mockups inside preview
-function renderPreviewGraphic(project) {
-  if (project.previewType === 'chart') {
-    return `
-      <div class="ui-mockup-table">
-        <div class="ui-mockup-header">
-          <span style="font-size: 0.68rem; color: #94a3b8; font-family: monospace;">${project.previewData.title}</span>
-          <span class="ui-mockup-pill ${project.previewData.colors[0]}"></span>
-        </div>
-        <div class="ui-mockup-chart">
-          <div class="chart-bar" style="height: 35%;"></div>
-          <div class="chart-bar" style="height: 60%;"></div>
-          <div class="chart-bar" style="height: 45%;"></div>
-          <div class="chart-bar" style="height: 85%;"></div>
-          <div class="chart-bar" style="height: 70%;"></div>
-          <div class="chart-bar" style="height: 95%;"></div>
-          <div class="chart-bar" style="height: 65%;"></div>
-        </div>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="ui-mockup-table">
-      <div class="ui-mockup-header">
-        <span style="font-size: 0.68rem; color: #94a3b8; font-family: monospace;">${project.previewData.title}</span>
-        <span class="ui-mockup-pill ${project.previewData.colors[0]}"></span>
-      </div>
-      <div class="ui-mockup-row">
-        <span style="font-size: 0.65rem; color: #cbd5e1;">Registro 01</span>
-        <span class="ui-mockup-pill ${project.previewData.colors[0]}"></span>
-      </div>
-      <div class="ui-mockup-row">
-        <span style="font-size: 0.65rem; color: #cbd5e1;">Registro 02</span>
-        <span class="ui-mockup-pill ${project.previewData.colors[1]}"></span>
-      </div>
-      <div class="ui-mockup-row">
-        <span style="font-size: 0.65rem; color: #cbd5e1;">Registro 03</span>
-        <span class="ui-mockup-pill ${project.previewData.colors[2]}"></span>
-      </div>
-    </div>
-  `;
 }
 
 // Setup Filters
