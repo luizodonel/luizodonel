@@ -88,7 +88,7 @@ const projectsData = [
       { name: 'WWebJS / Puppeteer', class: 'badge-docker-tag' },
       { name: 'Docker', class: 'badge-docker-tag' }
     ],
-    demoUrl: 'http://whatsapp.luizodonel.cloud/',
+    demoUrl: 'https://whatsapp.luizodonel.cloud/',
     demoLabel: 'Acessar Sistema',
     repoFrontend: 'https://github.com/luizodonel/whatsappMensagens',
     repoBackend: 'https://github.com/luizodonel/whatsappMensagensAPI',
