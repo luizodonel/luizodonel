@@ -1,411 +1,496 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luiz Odonel | Desenvolvedor Full-Stack Java & Angular</title>
-  <meta name="description" content="Portfólio de Luiz Odonel - Desenvolvedor Full-Stack especializado em Java, Spring Boot, Angular e arquiteturas escaláveis.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luiz Odonel | Desenvolvedor Full-Stack Java & Angular</title>
+    <meta name="description"
+        content="Portfólio de Luiz Odonel - Desenvolvedor Full-Stack especializado em Java, Spring Boot, Angular e arquiteturas escaláveis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- =========================================================================
-       NAVIGATION BAR
-       ========================================================================= -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="#sobre" class="brand-logo">
-        <div class="code-badge">&lt;/&gt;</div>
-        <span>dev.<span class="accent">luiz_odonel</span></span>
-      </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#sobre" class="nav-item active">Sobre</a></li>
-          <li><a href="#habilidades" class="nav-item">Habilidades</a></li>
-          <li><a href="#projetos" class="nav-item">Projetos</a></li>
-          <li><a href="javascript:void(0)" onclick="openCurriculumModal()" class="nav-item">Currículo</a></li>
-          <li><a href="#contato" class="nav-item">Contato</a></li>
-        </ul>
-      </nav>
 
-      <div class="nav-actions">
-        <button class="btn-contact-nav" onclick="openContactModal()">Entrar em Contato</button>
-      </div>
-    </div>
-  </header>
+    <main>
+        <section class="hero-section" id="sobre">
+            <div class="container hero-grid">
 
-  <main>
-    <!-- =========================================================================
-         HERO SECTION
-         ========================================================================= -->
-    <section class="hero-section" id="sobre">
-      <div class="container hero-grid">
-        
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Olá, eu sou <span class="highlight">Luiz Odonel</span>,<br>
-            <span class="gradient-text">Desenvolvedor Full-Stack</span><br>
-            <span class="gradient-text">Java & Angular</span>
-          </h1>
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Olá, eu sou <span class="highlight">Luiz Odonel</span>,<br>
+                        <span class="gradient-text">Desenvolvedor Full-Stack</span><br>
+                        <span class="gradient-text">Java & Angular</span>
+                    </h1>
 
-          <p class="hero-description">
-            Criação de sistemas robustos, escaláveis e consolidados para software com alta performance, focando no ecossistema Spring Boot, Angular e microsserviços conteinerizados.
-          </p>
+                    <p class="hero-description">
+                        Criação de sistemas robustos, escaláveis e consolidados para software com alta performance,
+                        focando no ecossistema Spring Boot, Angular e microsserviços conteinerizados.
+                    </p>
 
-          <div class="hero-buttons">
-            <a href="#projetos" class="btn-primary">
-              Ver Projetos
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            
-            <button class="btn-secondary" onclick="openCurriculumModal()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              Baixar Currículo
-            </button>
-          </div>
-        </div>
+                    <div class="hero-buttons">
+                        <a href="#projetos" class="btn-primary">
+                            Ver Projetos
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
 
-        <!-- Artwork Hero Mockup -->
-        <div class="hero-art-container">
-          <div class="art-glow-backdrop"></div>
+                        <button class="btn-secondary" onclick="openCurriculumModal()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                            Baixar Currículo
+                        </button>
+                    </div>
+                </div>
 
-          <!-- Code Mockup Editor -->
-          <div class="code-mockup-card">
-            <div class="code-mockup-header">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="code-mockup-title">PlataformaService.java</span>
+                <!-- Artwork Hero Mockup -->
+                <div class="hero-art-container">
+                    <div class="art-glow-backdrop"></div>
+
+                    <!-- Code Mockup Editor -->
+                    <div class="code-mockup-card">
+                        <div class="code-mockup-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="code-mockup-title">PlataformaService.java</span>
+                        </div>
+                        <div class="code-mockup-body">
+                            <p><span class="annotation">@RestController</span></p>
+                            <p><span class="annotation">@RequestMapping</span>(<span
+                                    class="string">"/api/v1/engine"</span>)</p>
+                            <p><span class="keyword">public class</span> <span
+                                    class="class-name">PlataformaService</span> {</p>
+                            <br>
+                            <p>&nbsp;&nbsp;<span class="annotation">@Autowired</span></p>
+                            <p>&nbsp;&nbsp;<span class="keyword">private</span> <span
+                                    class="class-name">EngineRepository</span> repo;</p>
+                            <br>
+                            <p>&nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span
+                                    class="string">"/processar"</span>)</p>
+                            <p>&nbsp;&nbsp;<span class="keyword">public</span> <span
+                                    class="class-name">ResponseEntity</span>&lt;<span
+                                    class="class-name">StatusDTO</span>&gt; executar() {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Processamento atômico e
+                                    transacional</span></p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> ResponseEntity.ok(<span
+                                    class="keyword">new</span> <span class="class-name">StatusDTO</span>(<span
+                                    class="string">"SUCCESS"</span>));</p>
+                            <p>&nbsp;&nbsp;}</p>
+                            <p>}</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badges -->
+                    <div class="floating-badge badge-java" title="Java 17 & Spring">
+                        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8">
+                            <path
+                                d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
+                        </svg>
+                    </div>
+
+                    <div class="floating-badge badge-angular" title="Angular 21">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
+                            <polygon points="12,2 22,5.5 19.5,18 12,22 4.5,18 2,5.5" stroke="#f43f5e" stroke-width="2"
+                                fill="rgba(244, 63, 94, 0.15)" />
+                            <path
+                                d="M12 5.5L6.5 17.5h2.2l1.1-2.8h4.4l1.1 2.8h2.2L12 5.5zm-1.4 7.2l1.4-3.5 1.4 3.5h-2.8z"
+                                fill="#f43f5e" />
+                        </svg>
+                    </div>
+
+                    <div class="floating-badge badge-spring" title="Spring Boot">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="code-mockup-body">
-              <p><span class="annotation">@RestController</span></p>
-              <p><span class="annotation">@RequestMapping</span>(<span class="string">"/api/v1/engine"</span>)</p>
-              <p><span class="keyword">public class</span> <span class="class-name">PlataformaService</span> {</p>
-              <br>
-              <p>&nbsp;&nbsp;<span class="annotation">@Autowired</span></p>
-              <p>&nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">EngineRepository</span> repo;</p>
-              <br>
-              <p>&nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="string">"/processar"</span>)</p>
-              <p>&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">ResponseEntity</span>&lt;<span class="class-name">StatusDTO</span>&gt; executar() {</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Processamento atômico e transacional</span></p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> ResponseEntity.ok(<span class="keyword">new</span> <span class="class-name">StatusDTO</span>(<span class="string">"SUCCESS"</span>));</p>
-              <p>&nbsp;&nbsp;}</p>
-              <p>}</p>
-            </div>
-          </div>
+        </section>
 
-          <!-- Floating Badges -->
-          <div class="floating-badge badge-java" title="Java 17 & Spring">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/>
-            </svg>
-          </div>
-
-          <div class="floating-badge badge-angular" title="Angular 21">
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
-              <polygon points="12,2 22,5.5 19.5,18 12,22 4.5,18 2,5.5" stroke="#f43f5e" stroke-width="2" fill="rgba(244, 63, 94, 0.15)"/>
-              <path d="M12 5.5L6.5 17.5h2.2l1.1-2.8h4.4l1.1 2.8h2.2L12 5.5zm-1.4 7.2l1.4-3.5 1.4 3.5h-2.8z" fill="#f43f5e"/>
-            </svg>
-          </div>
-
-          <div class="floating-badge badge-spring" title="Spring Boot">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
+        <!-- =========================================================================
          PROJECTS SECTION
          ========================================================================= -->
-    <section class="projects-section" id="projetos">
-      <div class="container">
-        
-        <div class="section-header">
-          <h2 class="section-title">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
-            Meus Projetos
-          </h2>
-          
-          <button class="btn-curriculum-header" onclick="openCurriculumModal()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            Visualizar Currículo (PDF)
-          </button>
-        </div>
+        <section class="projects-section" id="projetos">
+            <div class="container">
 
-        <!-- Filter Chips -->
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack (Java + Angular)</button>
-          <button class="filter-btn" data-filter="backend">Back-end & APIs</button>
-          <button class="filter-btn" data-filter="automacao">Automação & Scraping</button>
-        </div>
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M9 3v18M3 9h18" />
+                        </svg>
+                        Meus Projetos
+                    </h2>
 
-        <!-- Dynamic Grid of 8 Projects -->
-        <div class="projects-grid" id="projectsGrid"></div>
+                    <button class="btn-curriculum-header" onclick="openCurriculumModal()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                        Visualizar Currículo (PDF)
+                    </button>
+                </div>
 
-      </div>
-    </section>
+                <!-- Filter Chips -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack (Java + Angular)</button>
+                    <button class="filter-btn" data-filter="backend">Back-end & APIs</button>
+                    <button class="filter-btn" data-filter="automacao">Automação & Scraping</button>
+                </div>
 
-    <!-- =========================================================================
+                <!-- Dynamic Grid of 8 Projects -->
+                <div class="projects-grid" id="projectsGrid"></div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================================
          SKILLS SECTION
          ========================================================================= -->
-    <section class="skills-section" id="habilidades">
-      <div class="container">
-        
-        <div class="section-header" style="margin-bottom: 40px;">
-          <h2 class="section-title">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Habilidades & Tecnologias
-          </h2>
-        </div>
+        <section class="skills-section" id="habilidades">
+            <div class="container">
 
-        <div class="skills-grid">
-          
-          <!-- Back-end -->
-          <div class="skill-category-card">
-            <div class="skill-header">
-              <div class="skill-icon-box icon-java">☕</div>
-              <h3 class="skill-category-title">Back-End</h3>
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 class="section-title">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                        Habilidades & Tecnologias
+                    </h2>
+                </div>
+
+                <div class="skills-grid">
+
+                    <!-- Back-end -->
+                    <div class="skill-category-card">
+                        <div class="skill-header">
+                            <div class="skill-icon-box icon-java">☕</div>
+                            <h3 class="skill-category-title">Back-End</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-name">Java 17 / 21</span><span
+                                    class="skill-tag">Avançado</span></li>
+                            <li class="skill-item"><span class="skill-name">Spring Boot 3</span><span
+                                    class="skill-tag">RESTful</span></li>
+                            <li class="skill-item"><span class="skill-name">Spring Data JPA / Hibernate</span><span
+                                    class="skill-tag">ORM</span></li>
+                            <li class="skill-item"><span class="skill-name">Spring Security & BCrypt</span><span
+                                    class="skill-tag">Auth</span></li>
+                            <li class="skill-item"><span class="skill-name">Selenium Headless</span><span
+                                    class="skill-tag">Scraping</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Front-end -->
+                    <div class="skill-category-card">
+                        <div class="skill-header">
+                            <div class="skill-icon-box icon-angular">🅰️</div>
+                            <h3 class="skill-category-title">Front-End</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-name">Angular 21 (Signals)</span><span
+                                    class="skill-tag">Modern</span></li>
+                            <li class="skill-item"><span class="skill-name">TypeScript</span><span
+                                    class="skill-tag">Tipagem</span></li>
+                            <li class="skill-item"><span class="skill-name">Angular SSR (Express 5)</span><span
+                                    class="skill-tag">BFF</span></li>
+                            <li class="skill-item"><span class="skill-name">Capacitor 8 (Mobile)</span><span
+                                    class="skill-tag">Android/iOS</span></li>
+                            <li class="skill-item"><span class="skill-name">HTML5 / CSS Puro / UX</span><span
+                                    class="skill-tag">Dark Mode</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Database -->
+                    <div class="skill-category-card">
+                        <div class="skill-header">
+                            <div class="skill-icon-box icon-db">🗄️</div>
+                            <h3 class="skill-category-title">Banco de Dados</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-name">PostgreSQL 16</span><span
+                                    class="skill-tag">Produção</span></li>
+                            <li class="skill-item"><span class="skill-name">Modelagem Relacional</span><span
+                                    class="skill-tag">Cascade</span></li>
+                            <li class="skill-item"><span class="skill-name">Otimização de Índices</span><span
+                                    class="skill-tag">Queries</span></li>
+                            <li class="skill-item"><span class="skill-name">Controle Transacional</span><span
+                                    class="skill-tag">@Transactional</span></li>
+                            <li class="skill-item"><span class="skill-name">H2 Database</span><span
+                                    class="skill-tag">Dev Local</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- DevOps & Cloud -->
+                    <div class="skill-category-card">
+                        <div class="skill-header">
+                            <div class="skill-icon-box icon-devops">🐳</div>
+                            <h3 class="skill-category-title">DevOps & Cloud</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-name">Docker Multi-Stage</span><span
+                                    class="skill-tag">Builds</span></li>
+                            <li class="skill-item"><span class="skill-name">Docker Compose</span><span
+                                    class="skill-tag">Orquestração</span></li>
+                            <li class="skill-item"><span class="skill-name">Coolify (PaaS / VPS)</span><span
+                                    class="skill-tag">CI/CD</span></li>
+                            <li class="skill-item"><span class="skill-name">Nginx Proxy & SSL</span><span
+                                    class="skill-tag">Let's Encrypt</span></li>
+                            <li class="skill-item"><span class="skill-name">Linux / Bash Scripting</span><span
+                                    class="skill-tag">Server</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">Java 17 / 21</span><span class="skill-tag">Avançado</span></li>
-              <li class="skill-item"><span class="skill-name">Spring Boot 3</span><span class="skill-tag">RESTful</span></li>
-              <li class="skill-item"><span class="skill-name">Spring Data JPA / Hibernate</span><span class="skill-tag">ORM</span></li>
-              <li class="skill-item"><span class="skill-name">Spring Security & BCrypt</span><span class="skill-tag">Auth</span></li>
-              <li class="skill-item"><span class="skill-name">Selenium Headless</span><span class="skill-tag">Scraping</span></li>
-            </ul>
-          </div>
+        </section>
 
-          <!-- Front-end -->
-          <div class="skill-category-card">
-            <div class="skill-header">
-              <div class="skill-icon-box icon-angular">🅰️</div>
-              <h3 class="skill-category-title">Front-End</h3>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">Angular 21 (Signals)</span><span class="skill-tag">Modern</span></li>
-              <li class="skill-item"><span class="skill-name">TypeScript</span><span class="skill-tag">Tipagem</span></li>
-              <li class="skill-item"><span class="skill-name">Angular SSR (Express 5)</span><span class="skill-tag">BFF</span></li>
-              <li class="skill-item"><span class="skill-name">Capacitor 8 (Mobile)</span><span class="skill-tag">Android/iOS</span></li>
-              <li class="skill-item"><span class="skill-name">HTML5 / CSS Puro / UX</span><span class="skill-tag">Dark Mode</span></li>
-            </ul>
-          </div>
-
-          <!-- Database -->
-          <div class="skill-category-card">
-            <div class="skill-header">
-              <div class="skill-icon-box icon-db">🗄️</div>
-              <h3 class="skill-category-title">Banco de Dados</h3>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">PostgreSQL 16</span><span class="skill-tag">Produção</span></li>
-              <li class="skill-item"><span class="skill-name">Modelagem Relacional</span><span class="skill-tag">Cascade</span></li>
-              <li class="skill-item"><span class="skill-name">Otimização de Índices</span><span class="skill-tag">Queries</span></li>
-              <li class="skill-item"><span class="skill-name">Controle Transacional</span><span class="skill-tag">@Transactional</span></li>
-              <li class="skill-item"><span class="skill-name">H2 Database</span><span class="skill-tag">Dev Local</span></li>
-            </ul>
-          </div>
-
-          <!-- DevOps & Cloud -->
-          <div class="skill-category-card">
-            <div class="skill-header">
-              <div class="skill-icon-box icon-devops">🐳</div>
-              <h3 class="skill-category-title">DevOps & Cloud</h3>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">Docker Multi-Stage</span><span class="skill-tag">Builds</span></li>
-              <li class="skill-item"><span class="skill-name">Docker Compose</span><span class="skill-tag">Orquestração</span></li>
-              <li class="skill-item"><span class="skill-name">Coolify (PaaS / VPS)</span><span class="skill-tag">CI/CD</span></li>
-              <li class="skill-item"><span class="skill-name">Nginx Proxy & SSL</span><span class="skill-tag">Let's Encrypt</span></li>
-              <li class="skill-item"><span class="skill-name">Linux / Bash Scripting</span><span class="skill-tag">Server</span></li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
+        <!-- =========================================================================
          ABOUT HIGHLIGHT
          ========================================================================= -->
-    <section class="about-section">
-      <div class="container">
-        <div class="about-card">
-          <div class="about-text">
-            <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1.5px;">Engenharia de Software de Alto Nível</span>
-            <h3>Foco em Produção, Performance e Regras de Negócio Reais</h3>
-            <p>
-              Minha atuação é focada em resolver problemas técnicos complexos: integração com gateways de pagamento em tempo real, automação com web scraping headless em contêineres, controle de consistência transacional e arquiteturas front-end com renderização no servidor.
-            </p>
-            <p>
-              Todos os projetos contam com tipagem estrita, isolamento em camadas (Clean Architecture) e deploy conteinerizado.
-            </p>
-          </div>
+        <section class="about-section">
+            <div class="container">
+                <div class="about-card">
+                    <div class="about-text">
+                        <span
+                            style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1.5px;">Engenharia
+                            de Software de Alto Nível</span>
+                        <h3>Foco em Produção, Performance e Regras de Negócio Reais</h3>
+                        <p>
+                            Minha atuação é focada em resolver problemas técnicos complexos: integração com gateways de
+                            pagamento em tempo real, automação com web scraping headless em contêineres, controle de
+                            consistência transacional e arquiteturas front-end com renderização no servidor.
+                        </p>
+                        <p>
+                            Todos os projetos contam com tipagem estrita, isolamento em camadas (Clean Architecture) e
+                            deploy conteinerizado.
+                        </p>
+                    </div>
 
-          <div class="about-stats">
-            <div class="stat-box">
-              <div class="stat-number">8+</div>
-              <div class="stat-label">Sistemas Desenvolvidos</div>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Sistemas Desenvolvidos</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Conteinerizados com Docker</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Disponibilidade em Produção</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">PIX</div>
+                            <div class="stat-label">Ativação Automática via Webhook</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stat-box">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Conteinerizados com Docker</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label">Disponibilidade em Produção</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">PIX</div>
-              <div class="stat-label">Ativação Automática via Webhook</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- =========================================================================
+        <!-- =========================================================================
          CONTACT SECTION
          ========================================================================= -->
-    <section class="contact-section" id="contato">
-      <div class="container">
-        <div class="contact-card">
-          <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;">Vamos conversar?</span>
-          <h2 class="contact-title">Pronto para novos desafios e projetos</h2>
-          <p class="contact-subtitle">
-            Estou disponível para oportunidades como Desenvolvedor Full-Stack (Java / Angular), projetos sob demanda ou posições corporativas.
-          </p>
+        <section class="contact-section" id="contato">
+            <div class="container">
+                <div class="contact-card">
+                    <span
+                        style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;">Vamos
+                        conversar?</span>
+                    <h2 class="contact-title">Pronto para novos desafios e projetos</h2>
+                    <p class="contact-subtitle">
+                        Estou disponível para oportunidades como Desenvolvedor Full-Stack (Java / Angular), projetos sob
+                        demanda ou posições corporativas.
+                    </p>
 
-          <div class="contact-methods">
-            <a href="https://github.com/luizodonel" target="_blank" class="contact-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              GitHub
-            </a>
+                    <div class="contact-methods">
+                        <a href="https://github.com/luizodonel" target="_blank" class="contact-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                            GitHub
+                        </a>
 
-            <a href="mailto:luizodonel@gmail.com" class="contact-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              luizodonel@gmail.com
-            </a>
+                        <a href="mailto:luizodonel@gmail.com" class="contact-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            luizodonel@gmail.com
+                        </a>
 
-            <a href="https://wa.me/5500000000000" target="_blank" class="contact-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              WhatsApp
-            </a>
-          </div>
+                        <a href="https://wa.me/5500000000000" target="_blank" class="contact-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Luiz Odonel. Desenvolvedor Full-Stack Java & Angular. Todos os direitos reservados.</p>
         </div>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Luiz Odonel. Desenvolvedor Full-Stack Java & Angular. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- =========================================================================
+    <!-- =========================================================================
        MODAL: DETALHES TÉCNICOS DO PROJETO
        ========================================================================= -->
-  <div class="modal-overlay" id="projectModal">
-    <div class="modal-container" id="modalContent"></div>
-  </div>
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container" id="modalContent"></div>
+    </div>
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        MODAL: VISUALIZAR CURRÍCULO
        ========================================================================= -->
-  <div class="modal-overlay" id="curriculumModal">
-    <div class="modal-container" style="max-width: 780px;">
-      <div class="modal-header">
-        <div>
-          <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Currículo Profissional</span>
-          <h3>Luiz Odonel — Desenvolvedor Full-Stack</h3>
-        </div>
-        <button class="modal-close-btn" onclick="closeModal('curriculumModal')">&times;</button>
-      </div>
+    <div class="modal-overlay" id="curriculumModal">
+        <div class="modal-container" style="max-width: 780px;">
+            <div class="modal-header">
+                <div>
+                    <span
+                        style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Currículo
+                        Profissional</span>
+                    <h3>Luiz Odonel — Desenvolvedor Full-Stack</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeModal('curriculumModal')">&times;</button>
+            </div>
 
-      <div class="modal-body" style="background: #0b111e;">
-        <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 18px; margin-bottom: 20px;">
-          <h4 style="margin: 0; color: #fff;">Resumo das Competências</h4>
-          <p style="color: #94a3b8; font-size: 0.92rem; margin-top: 6px;">
-            Desenvolvedor Full-Stack com sólida experiência no ecossistema Java (Spring Boot) e Angular. Especializado na construção de APIs escaláveis, automação com Selenium Headless em Linux, microsserviços integrados a gateways de pagamento (Mercado Pago PIX, SuitPay) e deploy conteinerizado com Docker.
-          </p>
-        </div>
+            <div class="modal-body" style="background: #0b111e;">
+                <div
+                    style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 18px; margin-bottom: 20px;">
+                    <h4 style="margin: 0; color: #fff;">Resumo das Competências</h4>
+                    <p style="color: #94a3b8; font-size: 0.92rem; margin-top: 6px;">
+                        Desenvolvedor Full-Stack com sólida experiência no ecossistema Java (Spring Boot) e Angular.
+                        Especializado na construção de APIs escaláveis, automação com Selenium Headless em Linux,
+                        microsserviços integrados a gateways de pagamento (Mercado Pago PIX, SuitPay) e deploy
+                        conteinerizado com Docker.
+                    </p>
+                </div>
 
-        <div style="margin-bottom: 20px;">
-          <h4 style="color: var(--accent-cyan);">Tecnologias de Domínio</h4>
-          <ul style="color: #cbd5e1; font-size: 0.92rem;">
-            <li><strong>Back-end:</strong> Java 17, Spring Boot 3, Spring Data JPA, Hibernate, Spring Security, BCrypt, Selenium 4, Jakarta Mail.</li>
-            <li><strong>Front-end:</strong> Angular 21, TypeScript, Angular SSR (Express 5 BFF), Signals, Capacitor 8 (Android/iOS).</li>
-            <li><strong>Banco de Dados:</strong> PostgreSQL 16, H2 Database, modelagem relacional avançada com cascade e índices otimizados.</li>
-            <li><strong>DevOps:</strong> Docker, Docker Multi-stage, Docker Compose, Coolify, Nginx, Let's Encrypt, Linux VPS.</li>
-          </ul>
-        </div>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: var(--accent-cyan);">Tecnologias de Domínio</h4>
+                    <ul style="color: #cbd5e1; font-size: 0.92rem;">
+                        <li><strong>Back-end:</strong> Java 17, Spring Boot 3, Spring Data JPA, Hibernate, Spring
+                            Security, BCrypt, Selenium 4, Jakarta Mail.</li>
+                        <li><strong>Front-end:</strong> Angular 21, TypeScript, Angular SSR (Express 5 BFF), Signals,
+                            Capacitor 8 (Android/iOS).</li>
+                        <li><strong>Banco de Dados:</strong> PostgreSQL 16, H2 Database, modelagem relacional avançada
+                            com cascade e índices otimizados.</li>
+                        <li><strong>DevOps:</strong> Docker, Docker Multi-stage, Docker Compose, Coolify, Nginx, Let's
+                            Encrypt, Linux VPS.</li>
+                    </ul>
+                </div>
 
-        <div>
-          <h4 style="color: var(--accent-cyan);">Projetos Relevantes em Produção</h4>
-          <ul style="color: #cbd5e1; font-size: 0.92rem;">
-            <li><strong>Bac Bo Plataforma:</strong> Sistema de scraping em tempo real, gestão de bancas e conciliação de faturas PIX instantânea.</li>
-            <li><strong>Comboio Logística:</strong> Roteirização em malha rodoviária real com OSRM, heurística 2-Opt e telemetria de veículos.</li>
-            <li><strong>WhatsApp Automation Sender:</strong> Fila assíncrona de disparos com taxa de entrega controlada e webhooks de resposta.</li>
-          </ul>
-        </div>
-      </div>
+                <div>
+                    <h4 style="color: var(--accent-cyan);">Projetos Relevantes em Produção</h4>
+                    <ul style="color: #cbd5e1; font-size: 0.92rem;">
+                        <li><strong>Bac Bo Plataforma:</strong> Sistema de scraping em tempo real, gestão de bancas e
+                            conciliação de faturas PIX instantânea.</li>
+                        <li><strong>Comboio Logística:</strong> Roteirização em malha rodoviária real com OSRM,
+                            heurística 2-Opt e telemetria de veículos.</li>
+                        <li><strong>WhatsApp Automation Sender:</strong> Fila assíncrona de disparos com taxa de entrega
+                            controlada e webhooks de resposta.</li>
+                    </ul>
+                </div>
+            </div>
 
-      <div class="modal-footer">
-        <button class="btn-primary" onclick="window.print()" style="padding: 10px 22px; font-size: 0.9rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Imprimir / Salvar PDF
-        </button>
-        <button class="btn-secondary" onclick="closeModal('curriculumModal')" style="padding: 10px 22px; font-size: 0.9rem;">Fechar</button>
-      </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="window.print()" style="padding: 10px 22px; font-size: 0.9rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9" />
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                        <rect x="6" y="14" width="12" height="8" />
+                    </svg>
+                    Imprimir / Salvar PDF
+                </button>
+                <button class="btn-secondary" onclick="closeModal('curriculumModal')"
+                    style="padding: 10px 22px; font-size: 0.9rem;">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        MODAL: CONTATO RÁPIDO
        ========================================================================= -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal-container" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3>Entrar em Contato</h3>
-        <button class="modal-close-btn" onclick="closeModal('contactModal')">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="margin-bottom: 20px;">Você pode falar diretamente comigo através dos canais abaixo ou enviar um e-mail direto:</p>
-        
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="mailto:luizodonel@gmail.com" class="contact-badge" style="justify-content: flex-start;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            luizodonel@gmail.com
-          </a>
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-container" style="max-width: 580px;">
+            <div class="modal-header">
+                <h3>Entrar em Contato</h3>
+                <button class="modal-close-btn" onclick="closeModal('contactModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">Você pode falar diretamente comigo através dos canais abaixo ou enviar
+                    um e-mail direto:</p>
 
-          <a href="https://github.com/luizodonel" target="_blank" class="contact-badge" style="justify-content: flex-start;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            github.com/luizodonel
-          </a>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <a href="mailto:luizodonel@gmail.com" class="contact-badge" style="justify-content: flex-start;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        luizodonel@gmail.com
+                    </a>
 
-          <a href="https://wa.me/5500000000000" target="_blank" class="contact-badge" style="justify-content: flex-start;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            WhatsApp Direto
-          </a>
+                    <a href="https://github.com/luizodonel" target="_blank" class="contact-badge"
+                        style="justify-content: flex-start;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                        github.com/luizodonel
+                    </a>
+
+                    <a href="https://wa.me/5500000000000" target="_blank" class="contact-badge"
+                        style="justify-content: flex-start;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        WhatsApp Direto
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('contactModal')">Fechar</button>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-secondary" onclick="closeModal('contactModal')">Fechar</button>
-      </div>
     </div>
-  </div>
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
