@@ -89,7 +89,7 @@ const projectsData = [
       { name: 'Docker', class: 'badge-docker-tag' }
     ],
     demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel',
+    repoUrl: 'https://github.com/luizodonel/whatsappMensagens',
     fullReport: {
       headline: 'WhatsApp — Visão Técnica & Arquitetura',
       overview: 'Motor fullstack para automação de mensagens em escala com algoritmos inteligentes de prevenção de bloqueios (anti-ban), processamento de filas assíncronas tolerante a falhas e auto-resposta conversacional baseada em eventos.',
@@ -146,12 +146,17 @@ function renderProjects(filter) {
                    Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
         : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
-                   Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                   Ver Detalhes <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
       }
-            <a href="javascript:void(0)" class="action-link-source" onclick="openProjectModal('${p.id}')">
-              Código-fonte
-            </a>
+            ${p.repoFrontend
+        ? `<a href="javascript:void(0)" class="action-link-source" onclick="openProjectModal('${p.id}')">
+                   Código-fonte
+                 </a>`
+        : `<a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" class="action-link-source">
+                   Código-fonte ↗
+                 </a>`
+      }
           </div>
         </div>
       </div>
