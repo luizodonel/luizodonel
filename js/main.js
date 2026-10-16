@@ -88,8 +88,10 @@ const projectsData = [
       { name: 'WWebJS / Puppeteer', class: 'badge-docker-tag' },
       { name: 'Docker', class: 'badge-docker-tag' }
     ],
-    demoUrl: '#',
-    repoUrl: 'https://github.com/luizodonel/whatsappMensagens',
+    demoUrl: 'http://5yjqmd7ilzmip5esk9v1trrc.93.127.212.65.sslip.io/',
+    demoLabel: 'Acessar API',
+    repoFrontend: 'https://github.com/luizodonel/whatsappMensagens',
+    repoBackend: 'https://github.com/luizodonel/whatsappMensagensAPI',
     fullReport: {
       headline: 'WhatsApp — Visão Técnica & Arquitetura',
       overview: 'Motor fullstack para automação de mensagens em escala com algoritmos inteligentes de prevenção de bloqueios (anti-ban), processamento de filas assíncronas tolerante a falhas e auto-resposta conversacional baseada em eventos.',
@@ -143,7 +145,7 @@ function renderProjects(filter) {
           <div class="card-footer">
             ${hasLiveDemo
         ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="action-link">
-                   Acessar Sistema <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                   ${p.demoLabel || 'Acessar Sistema'} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
         : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
                    Ver Detalhes <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -197,7 +199,7 @@ window.openProjectModal = function (id) {
     <!-- Botões na Parte Superior -->
     <div class="modal-top-actions">
       ${project.demoUrl && project.demoUrl !== '#'
-      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">Acessar Sistema ↗</a>`
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">${project.demoLabel || 'Acessar Sistema'} ↗</a>`
       : ''
     }
       ${project.repoFrontend
