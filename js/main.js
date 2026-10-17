@@ -165,6 +165,10 @@ function renderProjects(filter) {
     return `
       <div class="project-card" data-id="${p.id}">
         <div class="card-body">
+          <div class="card-header-meta">
+            <span class="card-category-label">${p.category === 'automacao' ? 'Automação' : 'Full-Stack'}</span>
+            ${hasLiveDemo ? '<span class="status-live-chip"><span class="live-dot-red"></span> Online</span>' : ''}
+          </div>
           <h3 class="card-title" onclick="openProjectModal('${p.id}')" style="cursor: pointer;">
             ${p.title}
           </h3>
@@ -177,10 +181,10 @@ function renderProjects(filter) {
           <div class="card-footer">
             ${hasLiveDemo
         ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="action-link">
-                   ${p.demoLabel || 'Acessar Sistema'} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                   <span>${p.demoLabel || 'Acessar Sistema'}</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
         : `<a href="javascript:void(0)" class="action-link" onclick="openProjectModal('${p.id}')">
-                   Ver Detalhes <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                   <span>Ver Detalhes</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                  </a>`
       }
             ${p.repoFrontend
@@ -222,7 +226,7 @@ window.openProjectModal = function (id) {
   modalContent.innerHTML = `
     <div class="modal-header">
       <div>
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;">Visão Técnica do Projeto</span>
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green-bright); text-transform: uppercase; letter-spacing: 1px;">Visão Técnica do Projeto</span>
         <h3>${project.title}</h3>
       </div>
       <button class="modal-close-btn" onclick="closeModal('projectModal')">&times;</button>
@@ -231,7 +235,7 @@ window.openProjectModal = function (id) {
     <!-- Botões na Parte Superior -->
     <div class="modal-top-actions">
       ${project.demoUrl && project.demoUrl !== '#'
-      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">${project.demoLabel || 'Acessar Sistema'} ↗</a>`
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;"><span class="live-dot-red" style="margin-right: 4px;"></span> ${project.demoLabel || 'Acessar Sistema'} ↗</a>`
       : ''
     }
       ${project.repoFrontend
@@ -249,7 +253,7 @@ window.openProjectModal = function (id) {
     </div>
 
     <div class="modal-body">
-      <p style="font-size: 1.05rem; font-weight: 600; color: #f8fafc; margin-bottom: 12px;">${project.fullReport.headline}</p>
+      <p style="font-size: 1.05rem; font-weight: 600; color: #ffffff; margin-bottom: 12px;">${project.fullReport.headline}</p>
       <p>${project.fullReport.overview}</p>
 
       <h4>Stack de Tecnologias</h4>
