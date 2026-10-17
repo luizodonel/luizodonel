@@ -203,10 +203,6 @@ window.openProjectModal = function (id) {
       ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem;">${project.demoLabel || 'Acessar Sistema'} ↗</a>`
       : ''
     }
-      ${project.apiUrl
-      ? `<a href="${project.apiUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">API (Status / Swagger) ↗</a>`
-      : ''
-    }
       ${project.repoFrontend
       ? `<a href="${project.repoFrontend}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Front-end (Código Fonte) ↗</a>`
       : ''
