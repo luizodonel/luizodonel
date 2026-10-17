@@ -108,6 +108,37 @@ const projectsData = [
       database: 'Persistência em datastore local serializado (contacts.json e replied.json) com arquivo de auditoria de exceções (erros_envio.txt).',
       devops: 'Container Docker configurado com runtime Chromium e flags (--no-sandbox, --disable-setuid-sandbox) para execução ininterrupta na VPS.'
     }
+  },
+  {
+    id: 'jogosretro',
+    title: 'Jogos Retrô (Web / Emulador)',
+    category: 'fullstack',
+    shortDesc: 'Emulação de clássicos (SNES, GBA, Mega Drive, NES, GBC) no navegador via WebAssembly com 60 FPS, streaming de ROMs e saves na nuvem.',
+    tags: [
+      { name: 'Java 17', class: 'badge-java-tag' },
+      { name: 'Spring Boot 3', class: 'badge-spring-tag' },
+      { name: 'Angular 21', class: 'badge-angular-tag' },
+      { name: 'WebAssembly', class: 'badge-wasm-tag' },
+      { name: 'Docker', class: 'badge-docker-tag' }
+    ],
+    demoUrl: 'https://jogosretro.luizodonel.cloud',
+    demoLabel: 'Acessar Sistema',
+    repoFrontend: 'https://github.com/luizodonel/jogosretro',
+    repoBackend: 'https://github.com/luizodonel/jogosretroAPI',
+    fullReport: {
+      headline: 'Jogos Retrô — Emulação WebAssembly & Arquitetura Fullstack',
+      overview: 'Plataforma fullstack para execução de jogos retrô (Super Nintendo, Game Boy Advance, Mega Drive, NES e Game Boy Color) diretamente no navegador, eliminando a necessidade de plugins ou downloads locais através de núcleos compilados em WebAssembly (EmulatorJS) com execução nativa a 60 FPS e zero de latência.',
+      techStack: 'Back-end: Java 17, Spring Boot 3 (Spring MVC, Spring Data JPA, CORS, Streaming HTTP HEAD e Content-Length). Front-end: Angular 21 (Standalone Components, Signals zoneless, ChangeDetectorRef). Emulação: EmulatorJS com núcleos WebAssembly (snes9x, mgba, fceumm, genesis_plus_gx, gambatte). Datastore: Banco relacional (PostgreSQL / H2) com catálogo de ROMs e saves. DevOps: Docker Multi-stage builds, Coolify.',
+      integrations: [
+        'Emulação In-Browser via WebAssembly: Execução dos cores do RetroArch compilados em WebAssembly (Wasm) e JavaScript no navegador do cliente através do EmulatorJS, entregando taxa contínua de 60 FPS, suporte a áudio WebAudio API, tela cheia, save states e controles customizados.',
+        'Auto-Hospedagem de Cores e Assets (Zero CDN Lag): Estratégia de hospedagem local de todos os arquivos estáticos dos núcleos (snes9x, mgba, fceumm, etc.), descompactadores (extractzip, extract7z) e i18n na aplicação Angular, reduzindo o tempo de carregamento inicial de mais de 25 segundos para menos de 1 segundo.',
+        'Streaming de ROMs e Pre-Fetching em Memória: Suporte a requisições HTTP HEAD com Content-Length no backend Spring Boot e pré-carregamento assíncrono das ROMs via Blob/URL.createObjectURL() no frontend, contornando limitações de proxy e garantindo carregamento instantâneo sem congelar a UI.',
+        'Gerenciamento Reativo de Estado (Angular 21 Signals): Ciclo de vida desacoplado com signals reativos para status de carregamento, seleção de jogos e injeção do canvas sem conflitos de zona (zoneless architecture).'
+      ],
+      architecture: 'Arquitetura cliente-servidor otimizada: O back-end em Spring Boot 3 atua como catálogo central e storage de ROMs e saves de progresso. O front-end em Angular 21 gerencia a vitrine interativa e instancia dinamicamente o iframe e o canvas do emulador WebAssembly no cliente, garantindo que o servidor não sofra sobrecarga de CPU ou processamento gráfico.',
+      database: 'Catálogo relacional indexado com metadados dos jogos (título, console/plataforma, gênero, capa, tamanho de arquivo e caminho da ROM) e persistência de dados de progresso do jogador.',
+      devops: 'Docker Multi-stage builds: Front-end compilado em Node e entregue por Nginx otimizado; Back-end compilado com Maven e executado em container isolado com JDK Temurin 17; deploy contínuo em VPS gerenciado via Coolify.'
+    }
   }
 ];
 
